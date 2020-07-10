@@ -18,4 +18,4 @@ spec:
             - '--git-path=namespaces,workloads'
             - '--git-user=joshuaspence'
             - '--git-email=joshuaspence@users.noreply.github.com'
-            - '--git-url=git@github.com:joshuaspence/homelab'
+            - '--git-url=https://github.com/joshuaspence/homelab.git'
