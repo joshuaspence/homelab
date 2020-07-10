@@ -10,12 +10,9 @@ spec:
       containers:
         - name: 'flux'
           args:
-            - '--manifest-generation=true'
-            - '--memcached-hostname=memcached.flux'
-            - '--memcached-service='
-            - '--ssh-keygen-dir=/var/fluxd/keygen'
-            - '--git-branch=master'
             - '--git-path=namespaces,workloads'
-            - '--git-user=joshuaspence'
-            - '--git-email=joshuaspence@users.noreply.github.com'
+            - '--git-readonly'
             - '--git-url=https://github.com/joshuaspence/homelab.git'
+            - '--manifest-generation'
+            - '--sync-garbage-collection-dry'
+
