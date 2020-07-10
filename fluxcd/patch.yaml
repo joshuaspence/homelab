@@ -15,4 +15,3 @@ spec:
             - '--git-url=https://github.com/joshuaspence/homelab.git'
             - '--manifest-generation'
             - '--sync-garbage-collection-dry'
-
