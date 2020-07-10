@@ -5,7 +5,7 @@ all: lint validate
 dev:
 	minikube status >/dev/null || minikube start
 	kubectl apply -k fluxcd
-	kubectl -n flux rollout status deployment/flux
+	kubectl --namespace flux rollout status deployment/flux
 
 .PHONY: lint
 lint: $(wildcard **/*.yaml) .yamllint
