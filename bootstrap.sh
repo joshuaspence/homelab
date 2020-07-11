@@ -4,15 +4,17 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-function bootstrap_release() {
-  kubectl apply --filename "bootstrap/${1}/${1}-release-values.yaml"
-  helm --namespace flux upgrade --install --values <(kubectl --namespace flux get --output jsonpath='{.data.values\.yaml}' configmap "${1}-release-values") --wait "${1}" "fluxcd/${1}"
-}
-
 # Add Helm repository for Flux.
 helm repo add fluxcd https://charts.fluxcd.io
 
 # Bootstrap Flux and Helm Operator.
-kubectl apply --filename bootstrap/namespace.yaml
-bootstrap_release flux
-bootstrap_release helm-operator
+kubectl apply --filename flux/namespace.yaml
+helm install --namespace flux --set git.readonly=true --set git.url=https://github.com/joshuaspence/homelab.git flux fluxcd/flux
+helm install --namespace flux --set helm.versions=v3 helm-operator fluxcd/helm-operator
+
+# --atomic
+# --no-hooks
+# --repo
+# --verify
+# --wait
+
