@@ -14,6 +14,8 @@ dev:
 	minikube status >/dev/null || minikube start
 	kubectl apply -k fluxcd
 	kubectl --namespace flux rollout status deployment/flux
+	kustomize build helm-operator | kubectl apply --filename -
+	kubectl --namespace flux rollout status deployment/helm-operator
 
 .PHONY: lint
 lint: $(wildcard **/*.yaml) .yamllint

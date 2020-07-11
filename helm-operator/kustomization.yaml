@@ -1,0 +1,15 @@
+---
+bases:
+  - 'github.com/fluxcd/helm-operator//deploy'
+patchesJSON6902:
+  - target:
+      group: 'apps'
+      version: 'v1'
+      kind: 'Deployment'
+      name: 'helm-operator'
+      namespace: 'flux'
+    patch: |-
+      - op: 'replace'
+        path: '/spec/template/spec/containers/0/args'
+        value:
+          - '--enabled-helm-versions=v3'
