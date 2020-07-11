@@ -12,9 +12,9 @@ all: lint validate
 .PHONY: dev
 dev:
 	minikube status >/dev/null || minikube start
-	kubectl apply -k fluxcd
+	kubectl apply -k bootstrap/flux
 	kubectl --namespace flux rollout status deployment/flux
-	kustomize build helm-operator | kubectl apply --filename -
+	kustomize build bootstrap/helm-operator | kubectl apply --filename -
 	kubectl --namespace flux rollout status deployment/helm-operator
 
 .PHONY: lint
