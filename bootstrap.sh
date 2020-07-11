@@ -4,10 +4,4 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# Add Helm repository for Flux.
-helm repo add fluxcd https://charts.fluxcd.io
-
-# Bootstrap Flux and Helm Operator.
-kubectl apply --filename flux/namespace.yaml
-helm install --atomic --namespace flux --set git.readonly=true --set git.url=https://github.com/joshuaspence/homelab.git flux fluxcd/flux
-helm install --atomic --namespace flux --set helm.versions=v3 helm-operator fluxcd/helm-operator
+fluxctl install --git-email support@weave.works --git-readonly --git-url https://github.com/joshuaspence/homelab.git --namespace flux | kubectl --filename -
