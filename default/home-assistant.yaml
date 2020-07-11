@@ -1,0 +1,12 @@
+---
+apiVersion: 'helm.fluxcd.io/v1'
+kind: 'HelmRelease'
+metadata:
+  name: 'home-assistant'
+  namespace: 'default'
+spec:
+  releaseName: 'home-assistant'
+  chart:
+    repository: 'https://billimek.com/billimek-charts/'
+    name: 'home-assistant'
+    version: '1.0.1'
