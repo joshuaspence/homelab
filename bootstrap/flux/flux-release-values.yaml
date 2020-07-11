@@ -10,13 +10,6 @@ data:
       url: 'https://github.com/joshuaspence/homelab.git'
     helmOperator:
       create: false
-    prometheus:
-      enabled: true
-      serviceMonitor:
-        create: true
-        interval: '30s'
-        scrapeTimeout: '10s'
-        namespace: 'flux'
     syncGarbageCollection:
       enabled: true
       dry: false
