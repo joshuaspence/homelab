@@ -113,6 +113,3 @@ spec:
               resources:
                 requests:
                   storage: '30Gi'
-  valuesFrom:
-  - secretKeyRef:
-      name: 'prometheus-operator-values'
