@@ -7,10 +7,8 @@ metadata:
 data:
   values.yaml: |
     git:
-      readonly: true
       url: 'https://github.com/joshuaspence/homelab.git'
-    helmOperator:
-      create: false
+      readonly: true
     prometheus:
       enabled: true
       serviceMonitor:
@@ -20,4 +18,5 @@ data:
         namespace: 'flux'
     syncGarbageCollection:
       enabled: true
-      dry: false
+    dashboards:
+      enabled: true

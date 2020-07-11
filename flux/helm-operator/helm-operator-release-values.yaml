@@ -16,3 +16,5 @@ data:
         interval: '30s'
         scrapeTimeout: '10s'
         namespace: 'flux'
+    dashboards:
+      enabled: true
