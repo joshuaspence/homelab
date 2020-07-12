@@ -6,6 +6,7 @@ metadata:
   namespace: 'default'
   annotations:
     fluxcd.io/automated: 'true'
+    fluxcd.io/tag.chart-image: 'semver:~0.'
 spec:
   chart:
     repository: 'https://billimek.com/billimek-charts/'
@@ -15,4 +16,4 @@ spec:
   values:
     image:
       repository: 'homeassistant/home-assistant'
-      tag: '0.113.0.dev20200712'
+      tag: '0.111.4'
