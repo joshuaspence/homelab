@@ -16,4 +16,4 @@ spec:
     version: '1.3.0'
   valuesFrom:
     - configMapKeyRef:
-        name: 'flux-release-values'
+        name: 'flux-config'

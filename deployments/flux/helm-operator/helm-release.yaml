@@ -13,4 +13,4 @@ spec:
     version: '1.1.0'
   valuesFrom:
     - configMapKeyRef:
-        name: 'helm-operator-release-values'
+        name: 'helm-operator-config'
