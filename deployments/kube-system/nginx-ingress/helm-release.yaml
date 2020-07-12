@@ -8,7 +8,7 @@ spec:
   releaseName: 'nginx-ingress'
   chart:
     repository: 'https://kubernetes-charts.storage.googleapis.com/'
-    name: 'ingress-nginx'
+    name: 'nginx-ingress'
     version: '1.40.3'
   values:
     controller:
