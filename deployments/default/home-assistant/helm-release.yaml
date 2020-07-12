@@ -4,6 +4,8 @@ kind: 'HelmRelease'
 metadata:
   name: 'home-assistant'
   namespace: 'default'
+  annotations:
+    fluxcd.io/automated: 'true'
 spec:
   releaseName: 'home-assistant'
   chart:
