@@ -24,7 +24,3 @@ fluxctl identity | gh api repos/:owner/:repo/keys --field 'title=Flux' --field '
 
 # Force a sync.
 fluxctl sync
-
-echo 'For Flux logs, run the following command:'
-echo
-echo 'kubectl --namespace flux logs deployment/flux'
