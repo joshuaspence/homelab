@@ -7,8 +7,12 @@ metadata:
   annotations:
     fluxcd.io/automated: 'true'
 spec:
-  releaseName: 'home-assistant'
   chart:
     repository: 'https://billimek.com/billimek-charts/'
     name: 'home-assistant'
     version: '1.0.1'
+  releaseName: 'home-assistant'
+  values:
+    image:
+      repository: 'homeassistant/home-assistant'
+      tag: '0.111.4'
