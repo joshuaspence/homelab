@@ -4,10 +4,16 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# Bootstrap Flux.
+# Add the Flux repository.
+helm repo add fluxcd https://charts.fluxcd.io
+
+# Apply the `HelmRelease` CRD.
+kubectl apply --filename https://raw.githubusercontent.com/fluxcd/helm-operator/master/deploy/crds.yaml
+
+# Bootstrap Flux (see https://docs.fluxcd.io/en/1.18.0/tutorials/get-started-helm.html).
 kubectl create namespace flux
-fluxctl install --git-email support@weave.works --git-url $(gh api repos/:owner/:repo | jq --raw-output .ssh_url) --namespace flux | kubectl apply --filename -
-kubectl --namespace flux rollout status deployment/flux
+helm install --atomic --namespace flux --set git.url=$(gh api repos/:owner/:repo | jq --raw-output .ssh_url) flux fluxcd/flux
+helm install --atomic --namespace flux --set helm.versions=v3 helm-operator fluxcd/helm-operator
 
 # Add SSH key to repo.
 gh api repos/:owner/:repo/keys | jq '.[] | .id' | xargs --replace gh api repos/:owner/:repo/keys/{} --method DELETE
