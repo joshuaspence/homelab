@@ -18,3 +18,7 @@ helm install --atomic --namespace flux --set helm.versions=v3 helm-operator flux
 # Add SSH key to repo.
 gh api repos/:owner/:repo/keys | jq '.[] | .id' | xargs --replace gh api repos/:owner/:repo/keys/{} --method DELETE
 fluxctl --k8s-fwd-ns flux identity | gh api repos/:owner/:repo/keys --field 'title=Flux' --field 'key=@-' --field 'read_only=false'
+
+echo 'For Flux logs, run the following command:'
+echo
+echo 'kubectl --namespace flux logs deployment/flux'
