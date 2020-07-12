@@ -7,6 +7,7 @@ metadata:
 data:
   values.yaml: |
     git:
+      path: 'deployments'
       url: 'git@github.com:joshuaspence/homelab.git'
     prometheus:
       enabled: true
