@@ -10,11 +10,3 @@ spec:
     repository: 'https://kubernetes-charts.storage.googleapis.com/'
     name: 'nginx-ingress'
     version: '1.40.3'
-  values:
-    controller:
-      metrics:
-        enabled: true
-        serviceMonitor:
-          enabled: true
-        prometheusRule:
-          rules: []

@@ -10,14 +10,5 @@ data:
       branch: 'master'
       path: 'deployments'
       url: 'git@github.com:joshuaspence/homelab.git'
-    prometheus:
-      enabled: true
-      serviceMonitor:
-        create: true
-        interval: '30s'
-        scrapeTimeout: '10s'
-        namespace: 'flux'
     syncGarbageCollection:
-      enabled: true
-    dashboards:
       enabled: true
