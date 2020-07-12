@@ -4,9 +4,6 @@ kind: 'HelmRelease'
 metadata:
   name: 'flux'
   namespace: 'flux'
-  annotations:
-    fluxcd.io/automated: 'false'
-    fluxcd.io/tag.chart-image: 'semver:~1.20'
 spec:
   releaseName: 'flux'
   helmVersion: 'v3'

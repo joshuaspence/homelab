@@ -4,10 +4,6 @@ kind: 'HelmRelease'
 metadata:
   name: 'prometheus-operator'
   namespace: 'monitoring'
-  annotations:
-    fluxcd.io/ignore: 'false'
-    fluxcd.io/automated: 'false'
-    fluxcd.io/tag.grafana: 'semver:~7'
 spec:
   releaseName: 'prometheus-operator'
   helmVersion: 'v3'
