@@ -1,0 +1,1 @@
+{"jobID":"feecda09-9389-d91c-cd98-71ed4b4e5fa1","spec":{"type":"policy","cause":{"Message":"","User":"Joshua Spence \u003cjosh@joshuaspence.com\u003e"},"spec":{"flux:helmrelease/flux":{"add":{"automated":"true"},"remove":{}}}},"result":null}
