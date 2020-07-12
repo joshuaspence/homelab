@@ -5,13 +5,13 @@ metadata:
   name: 'flux'
   namespace: 'flux'
   annotations:
-    fluxcd.io/automated: true
+    fluxcd.io/automated: 'false'
 spec:
-  releaseName: 'flux'
   chart:
     repository: 'https://charts.fluxcd.io'
     name: 'flux'
-    version: '1.3.0'
+    version: '1.4.0'
+  releaseName: 'flux'
   valuesFrom:
     - configMapKeyRef:
         name: 'flux-config'
