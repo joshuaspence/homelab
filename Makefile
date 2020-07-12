@@ -16,4 +16,3 @@ logs-helm:
 .PHONY: validate
 validate:
 	kubeval --directories . --ignore-missing-schemas --strict
-
