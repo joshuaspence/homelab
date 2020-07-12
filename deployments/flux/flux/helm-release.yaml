@@ -4,11 +4,12 @@ kind: 'HelmRelease'
 metadata:
   name: 'flux'
   namespace: 'flux'
+  annotations:
+    fluxcd.io/automated: true
 spec:
   releaseName: 'flux'
-  helmVersion: 'v3'
   chart:
-    repository: 'https://charts.fluxcd.io/'
+    repository: 'https://charts.fluxcd.io'
     name: 'flux'
     version: '1.3.0'
   valuesFrom:
