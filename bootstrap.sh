@@ -3,10 +3,12 @@
 set -o errexit
 set -o nounset
 set -o pipefail
-set -o xtrace
 
 # Configure `fluxctl`.
 export FLUX_FORWARD_NAMESPACE=flux
+
+# Print commands as they are executed.
+trap 'echo "# $BASH_COMMAND"' DEBUG
 
 # Add the Flux repository.
 helm repo add fluxcd https://charts.fluxcd.io
