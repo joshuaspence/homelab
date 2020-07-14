@@ -15,8 +15,8 @@ kubectl apply --filename https://raw.githubusercontent.com/fluxcd/helm-operator/
 
 # Bootstrap Flux (see https://docs.fluxcd.io/en/1.18.0/tutorials/get-started-helm.html).
 kubectl create namespace flux
-helm install --namespace flux --set git.path=deployments --set git.url=$(gh api repos/:owner/:repo | jq --raw-output .ssh_url) --wait flux fluxcd/flux
-helm install --namespace flux --set helm.versions=v3 helm-operator --wait fluxcd/helm-operator
+helm install --namespace flux --set git.path=deployments --set git.url=$(gh api repos/:owner/:repo | jq --raw-output .ssh_url) --wait flux fluxcd/flux >/dev/null
+helm install --namespace flux --set helm.versions=v3 helm-operator --wait fluxcd/helm-operator >/dev/null
 
 # Add SSH key to repo.
 gh api repos/:owner/:repo/keys | jq '.[] | .id' | xargs --replace gh api repos/:owner/:repo/keys/{} --method DELETE
