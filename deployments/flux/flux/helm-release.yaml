@@ -12,6 +12,10 @@ spec:
     name: 'flux'
     version: '1.4.0'
   releaseName: 'flux'
-  valuesFrom:
-    - configMapKeyRef:
-        name: 'flux-config'
+  values:
+    git:
+      branch: 'master'
+      path: 'deployments'
+      url: 'git@github.com:joshuaspence/homelab.git'
+    syncGarbageCollection:
+      enabled: true
