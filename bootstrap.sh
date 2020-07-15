@@ -4,9 +4,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# Configure `fluxctl`.
-export FLUX_FORWARD_NAMESPACE=flux
-
 # Print commands as they are executed.
 trap 'echo "# $BASH_COMMAND"' DEBUG
 
@@ -25,4 +22,4 @@ helm install --namespace flux --repo https://charts.fluxcd.io --set git.path=dep
 helm install --namespace flux --repo https://charts.fluxcd.io --set helm.versions=v3 helm-operator --wait helm-operator >/dev/null
 
 # Force a sync.
-fluxctl sync
+fluxctl --k8s-fwd-ns flux sync
