@@ -11,9 +11,13 @@ trap 'echo "# $BASH_COMMAND"' DEBUG
 readonly FLUX_KEY="${HOME}/.ssh/keys/flux"
 
 if ! test -f "${FLUX_KEY}"; then
+  # Generate a new key.
   ssh-keygen -C flux -f "${FLUX_KEY}" -N '' -q -t ed25519
 
+  # Delete existing deployment keys.
   gh api repos/:owner/:repo/keys | jq '.[] | .id' | xargs --replace gh api repos/:owner/:repo/keys/{} --method DELETE
+
+  # Create a new deployment key.
   gh api repos/:owner/:repo/keys --field 'title=Flux' --field "key=@${FLUX_KEY}.pub" --field 'read_only=false' >/dev/null
 fi
 
