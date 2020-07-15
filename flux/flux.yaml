@@ -17,5 +17,8 @@ spec:
       branch: 'master'
       secretName: 'flux-git-deploy'
       url: 'git@github.com:joshuaspence/homelab.git'
+    image:
+      repository: 'docker.io/fluxcd/flux'
+      tag: '1.20.0'
     syncGarbageCollection:
       enabled: true
