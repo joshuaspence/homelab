@@ -24,8 +24,9 @@ fi
 # Bootstrap Flux (see https://docs.fluxcd.io/en/1.18.0/tutorials/get-started-helm.html).
 kubectl create namespace flux
 kubectl --namespace flux create secret generic flux-git-deploy --from-file "identity=${FLUX_KEY}"
-helm install --namespace flux --repo https://charts.fluxcd.io --set git.path=deployments --set git.secretName=flux-git-deploy --set git.url=$(gh api repos/:owner/:repo | jq --raw-output .ssh_url) --wait flux flux >/dev/null
-helm install --namespace flux --repo https://charts.fluxcd.io --set helm.versions=v3 helm-operator --wait helm-operator >/dev/null
+for CHART in flux helm-operator; do
+  helm install --namespace flux --repo https://charts.fluxcd.io --values <(yq read "deployments/flux/${CHART}/helm-release.yaml" spec.values) --wait "${CHART}" "${CHART}" >/dev/null
+done
 
 # Force a sync.
 fluxctl --k8s-fwd-ns flux sync

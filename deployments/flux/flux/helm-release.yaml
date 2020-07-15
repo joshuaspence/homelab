@@ -16,6 +16,7 @@ spec:
     git:
       branch: 'master'
       path: 'deployments'
+      secretName: 'flux-git-deploy'
       url: 'git@github.com:joshuaspence/homelab.git'
     syncGarbageCollection:
       enabled: true
