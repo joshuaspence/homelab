@@ -10,9 +10,6 @@ export FLUX_FORWARD_NAMESPACE=flux
 # Print commands as they are executed.
 trap 'echo "# $BASH_COMMAND"' DEBUG
 
-# Apply the `HelmRelease` CRD.
-kubectl apply --filename https://raw.githubusercontent.com/fluxcd/helm-operator/master/deploy/crds.yaml
-
 # Create SSH key and upload to GitHub.
 if ! test -f ~/.ssh/keys/flux; then
   ssh-keygen -C flux -f ~/.ssh/keys/flux -N '' -q -t ed25519
