@@ -15,6 +15,7 @@ spec:
   values:
     git:
       branch: 'master'
+      path: 'src'
       secretName: 'flux-git-deploy'
       url: 'git@github.com:joshuaspence/homelab.git'
     image:
