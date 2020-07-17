@@ -21,3 +21,7 @@ spec:
       enabled: true
       hosts:
         - 'home-assistant.local'
+    monitoring:
+      enabled: true
+      serviceMonitor:
+        enabled: true

@@ -21,5 +21,11 @@ spec:
     image:
       repository: 'docker.io/fluxcd/flux'
       tag: '1.20.0'
+    prometheus:
+      enabled: true
+      serviceMonitor:
+        create: true
     syncGarbageCollection:
+      enabled: true
+    dashboard:
       enabled: true

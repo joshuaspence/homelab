@@ -1,0 +1,47 @@
+---
+apiVersion: 'helm.fluxcd.io/v1'
+kind: 'HelmRelease'
+metadata:
+  name: 'prometheus-operator'
+  namespace: 'monitoring'
+  annotations:
+    fluxcd.io/automated: 'true'
+spec:
+  chart:
+    repository: 'https://kubernetes-charts.storage.googleapis.com'
+    name: 'prometheus-operator'
+    version: '9.1.0'
+  releaseName: 'prometheus-operator'
+  values:
+    prometheusOperator:
+      image:
+        repository: 'quay.io/coreos/prometheus-operator'
+        tag: 'v0.38.1'
+      prometheusConfigReloaderImage:
+        repository: 'quay.io/coreos/prometheus-config-reloader'
+        tag: 'v0.38.1'
+    prometheus:
+      ingress:
+        enabled: true
+        hosts:
+          - 'prometheus.local'
+      prometheusSpec:
+        image:
+          repository: 'quay.io/prometheus/prometheus'
+          tag: 'v2.18.2'
+    alertmanager:
+      alertmanagerSpec:
+        image:
+          repository: 'quay.io/prometheus/alertmanager'
+          tag: 'v0.21.0'
+      ingress:
+        enabled: true
+        hosts:
+          - 'alertmanager.local'
+    grafana:
+      image:
+        tag: '6.2.5'
+      ingress:
+        enabled: true
+        hosts:
+          - 'grafana.local'
