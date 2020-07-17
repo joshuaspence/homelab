@@ -19,7 +19,7 @@ spec:
     ingress:
       enabled: true
       hosts:
-      - 'kubernetes-dashboard.local'
+        - 'kubernetes-dashboard.local'
     metricsScraper:
       enabled: false
       image:
