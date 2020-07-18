@@ -6,7 +6,7 @@ metadata:
   namespace: 'monitoring'
   annotations:
     fluxcd.io/automated: 'true'
-    fluxcd.io/tag.grafana: 'semver:~6'
+    fluxcd.io/tag.grafana: 'semver:~7'
     fluxcd.io/tag.prometheusOperator: 'semver:~0'
 spec:
   chart:
