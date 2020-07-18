@@ -49,4 +49,9 @@ spec:
         - 'grafana.local'
       sidecar:
         dashboards:
+          enabled: true
           watchMethod: 'WATCH'
+          searchNamespace: 'ALL'
+        datasources:
+          enabled: true
+          searchNamespace: 'ALL'
