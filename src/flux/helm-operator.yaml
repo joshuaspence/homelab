@@ -13,6 +13,9 @@ spec:
     version: '1.1.0'
   releaseName: 'helm-operator'
   values:
+    image:
+      repository: 'docker.io/fluxcd/helm-operator'
+      tag: '1.1.0'
     git:
       ssh:
         secretName: 'flux-git-deploy'
