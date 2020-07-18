@@ -43,7 +43,7 @@ spec:
     grafana:
       image:
         repository: 'grafana/grafana'
-        tag: '6.2.5'
+        tag: '7.1.0'
       ingress:
         enabled: true
         hosts:
