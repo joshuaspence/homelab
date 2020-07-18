@@ -24,6 +24,9 @@ spec:
       path: 'src'
       pollInterval: '5m'
       secretName: 'flux-git-deploy'
+    memcached:
+      repository: 'memcached'
+      tag: '1.5.20'
     prometheus:
       enabled: true
       serviceMonitor:
