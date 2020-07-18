@@ -6,6 +6,7 @@ metadata:
   namespace: 'monitoring'
   annotations:
     fluxcd.io/automated: 'true'
+    fluxcd.io/tag.prometheusOperator: 'semver:~0.'
 spec:
   chart:
     repository: 'https://kubernetes-charts.storage.googleapis.com'
@@ -16,7 +17,7 @@ spec:
     prometheusOperator:
       image:
         repository: 'quay.io/coreos/prometheus-operator'
-        tag: 'master-arm'
+        tag: 'v0.38.1'
       prometheusConfigReloaderImage:
         repository: 'quay.io/coreos/prometheus-config-reloader'
         tag: 'v0.38.1'
@@ -24,7 +25,7 @@ spec:
       ingress:
         enabled: true
         hosts:
-        - 'prometheus.local'
+          - 'prometheus.local'
       prometheusSpec:
         image:
           repository: 'quay.io/prometheus/prometheus'
@@ -37,11 +38,11 @@ spec:
       ingress:
         enabled: true
         hosts:
-        - 'alertmanager.local'
+          - 'alertmanager.local'
     grafana:
       image:
         tag: '6.2.5'
       ingress:
         enabled: true
         hosts:
-        - 'grafana.local'
+          - 'grafana.local'
