@@ -1,3 +1,4 @@
+= Helm Charts =
 - [`cert-manager`](https://github.com/onedr0p/k3s-gitops/tree/master/deployments/cert-manager)
 - [`descheduler`](https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/descheduler/descheduler.yaml)
 - `home-assistant`
@@ -32,3 +33,10 @@
   - https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/sealed-secrets.yaml)
 - [`uptimerobot-heartbeat`](https://github.com/onedr0p/k3s-gitops/blob/master/deployments/monitoring/uptimerobot-heartbeat.yaml)
 - [Velero](https://github.com/onedr0p/k3s-gitops/tree/master/deployments/velero)
+
+= Helm Settings =
+See [`HelmRelease` Custom Resource](https://github.com/fluxcd/helm-operator/blob/master/docs/references/helmrelease-custom-resource.md).
+
+- `wait`
+- `rollback`
+- `test`
