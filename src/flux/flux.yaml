@@ -13,14 +13,17 @@ spec:
     version: '1.4.0'
   releaseName: 'flux'
   values:
-    git:
-      branch: 'master'
-      path: 'src'
-      secretName: 'flux-git-deploy'
-      url: 'git@github.com:joshuaspence/homelab.git'
     image:
       repository: 'docker.io/fluxcd/flux'
       tag: '1.20.0'
+    sync:
+      state: 'git'
+    git:
+      url: 'git@github.com:joshuaspence/homelab.git'
+      branch: 'master'
+      path: 'src'
+      pollInterval: '5m'
+      secretName: 'flux-git-deploy'
     prometheus:
       enabled: true
       serviceMonitor:
