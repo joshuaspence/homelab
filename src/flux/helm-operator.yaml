@@ -5,7 +5,7 @@ metadata:
   name: 'helm-operator'
   namespace: 'flux'
   annotations:
-    fluxcd.io/automated: 'false'
+    fluxcd.io/automated: 'true'
 spec:
   chart:
     repository: 'https://charts.fluxcd.io'
