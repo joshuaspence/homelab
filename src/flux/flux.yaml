@@ -19,13 +19,10 @@ spec:
     image:
       repository: 'docker.io/fluxcd/flux'
       tag: '1.20.0'
-    sync:
-      state: 'git'
     git:
       url: 'git@github.com:joshuaspence/homelab.git'
       branch: 'master'
       path: 'src'
-      pollInterval: '5m'
       secretName: 'flux-git-deploy'
     memcached:
       repository: 'memcached'
@@ -36,5 +33,5 @@ spec:
         create: true
     syncGarbageCollection:
       enabled: true
-    dashboard:
+    dashboards:
       enabled: true

@@ -25,5 +25,5 @@ spec:
       enabled: true
       serviceMonitor:
         create: true
-    dashboard:
+    dashboards:
       enabled: true
