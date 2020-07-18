@@ -41,6 +41,7 @@ spec:
         - 'alertmanager.local'
     grafana:
       image:
+        repository: 'grafana/grafana'
         tag: '6.2.5'
       ingress:
         enabled: true
