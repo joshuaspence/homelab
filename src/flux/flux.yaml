@@ -15,7 +15,6 @@ spec:
     name: 'flux'
     version: '1.4.0'
   releaseName: 'flux'
-  wait: true
   values:
     image:
       repository: 'docker.io/fluxcd/flux'
