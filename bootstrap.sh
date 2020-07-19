@@ -24,7 +24,7 @@ fi
 # Bootstrap Flux (see https://docs.fluxcd.io/en/1.18.0/tutorials/get-started-helm.html).
 kubectl create namespace flux
 kubectl --namespace flux create secret generic flux-git-deploy --from-file "identity=${FLUX_KEY}"
-for CHART in flux helm-operator; do
+for CHART in helm-operator flux; do
   helm install --namespace flux --repo https://charts.fluxcd.io --values <(yq read "src/flux/${CHART}.yaml" spec.values | yq delete - dashboard | yq delete - prometheus) --wait "${CHART}" "${CHART}" >/dev/null
 done
 
