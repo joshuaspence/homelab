@@ -31,7 +31,7 @@ done
 kubectl create namespace flux
 kubectl --namespace flux create secret generic flux-git-deploy --from-file "identity=${FLUX_KEY}"
 for CHART in helm-operator flux; do
-  helm install --namespace flux --repo https://charts.fluxcd.io --values <(yq read "src/flux/${CHART}.yaml" spec.values) --wait "${CHART}" "${CHART}" >/dev/null
+  helm install --namespace $(yq read "src/flux/${CHART}.yaml" metadata.namespace) --repo $(yq read "src/flux/${CHART}.yaml" spec.chart.repository) --values <(yq read "src/flux/${CHART}.yaml" spec.values) --version $(yq read "src/flux/${CHART}.yaml" spec.chart.version) --wait $(yq read "src/flux/${CHART}.yaml" spec.releaseName) $(yq read "src/flux/${CHART}.yaml" spec.chart.name) >/dev/null
 done
 
 # Force a sync.
