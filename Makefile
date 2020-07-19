@@ -1,10 +1,6 @@
 .PHONY: all
-all: lint validate
+all: lint
 
 .PHONY: lint
 lint:
 	yamllint --strict .
-
-.PHONY: validate
-validate:
-	kubeval --directories . --ignore-missing-schemas --strict
