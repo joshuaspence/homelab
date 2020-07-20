@@ -4,9 +4,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# Print commands as they are executed.
-trap 'echo "# $BASH_COMMAND"' DEBUG
-
 # Create deployment key and upload to GitHub.
 readonly FLUX_KEY="${HOME}/.ssh/keys/flux"
 
@@ -20,6 +17,9 @@ if ! test -f "${FLUX_KEY}"; then
   # Create a new deployment key.
   gh api repos/:owner/:repo/keys --field 'title=Flux' --field "key=@${FLUX_KEY}.pub" --field 'read_only=false' >/dev/null
 fi
+
+# Print commands as they are executed.
+trap 'echo "# $BASH_COMMAND"' DEBUG
 
 # Create CRDs first to avoid dependency hell.
 kubectl apply --filename https://raw.githubusercontent.com/fluxcd/helm-operator/master/deploy/crds.yaml
