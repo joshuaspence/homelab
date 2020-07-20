@@ -35,4 +35,5 @@ for CHART in helm-operator flux; do
 done
 
 # Force a sync.
-fluxctl --k8s-fwd-ns flux sync
+# NOTE: We use `retry` to workaround https://github.com/fluxcd/flux/issues/3200.
+retry --delay=10 --times=12 -- fluxctl --k8s-fwd-ns flux sync
