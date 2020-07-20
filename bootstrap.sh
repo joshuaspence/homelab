@@ -37,3 +37,6 @@ done
 # Force a sync.
 # NOTE: We use `retry` to workaround https://github.com/fluxcd/flux/issues/3200.
 retry --delay=10 --times=12 -- fluxctl --k8s-fwd-ns flux sync
+
+# Wait for all Helm releases to be installed.
+kubectl wait --all --all-namespaces --for condition=released --timeout 10m helmrelease
