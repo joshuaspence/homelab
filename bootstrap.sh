@@ -30,13 +30,14 @@ done
 # Bootstrap Flux (see https://docs.fluxcd.io/en/1.18.0/tutorials/get-started-helm.html).
 kubectl create namespace flux
 kubectl --namespace flux create secret generic flux-git-deploy --from-file "identity=${FLUX_KEY}"
-for CHART in helm-operator flux; do
-  helm install --namespace $(yq read "src/flux/${CHART}.yaml" metadata.namespace) --repo $(yq read "src/flux/${CHART}.yaml" spec.chart.repository) --values <(yq read "src/flux/${CHART}.yaml" spec.values) --version $(yq read "src/flux/${CHART}.yaml" spec.chart.version) --wait $(yq read "src/flux/${CHART}.yaml" spec.releaseName) $(yq read "src/flux/${CHART}.yaml" spec.chart.name) >/dev/null
+for CHART in flux helm-operator; do
+  helm install --namespace $(yq read "src/flux/${CHART}.yaml" metadata.namespace) --repo $(yq read "src/flux/${CHART}.yaml" spec.chart.repository) --values <(yq read "src/flux/${CHART}.yaml" spec.values) --version $(yq read "src/flux/${CHART}.yaml" spec.chart.version) $(yq read "src/flux/${CHART}.yaml" spec.releaseName) $(yq read "src/flux/${CHART}.yaml" spec.chart.name) >/dev/null
 done
 
 # Force a sync.
-# NOTE: We use `retry` to workaround https://github.com/fluxcd/flux/issues/3200.
-retry --delay=10 --times=12 -- fluxctl --k8s-fwd-ns flux sync
+kubectl --namespace flux rollout status deployment/flux
+kubectl --namespace flux rollout status deployment/helm-operator
+fluxctl --k8s-fwd-ns flux sync
 
 # Wait for all Helm releases to be installed.
 kubectl wait --all --all-namespaces --for condition=released --timeout 10m helmrelease
