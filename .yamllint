@@ -50,4 +50,5 @@ rules:
     quote-type: 'single'
     required: true
   trailing-spaces: 'disable'
-  truthy: 'enable'
+  truthy:
+    check-keys: false
