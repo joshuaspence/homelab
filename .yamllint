@@ -1,7 +1,7 @@
 ---
 yaml-files:
-  - '*.yaml'
-  - '.yamllint'
+- '*.yaml'
+- '.yamllint'
 
 rules:
   braces:
@@ -37,7 +37,7 @@ rules:
     max-spaces-after: 1
   indentation:
     spaces: 2
-    indent-sequences: true
+    indent-sequences: false
   key-duplicates: 'enable'
   key-ordering: 'disable'
   line-length: 'disable'
