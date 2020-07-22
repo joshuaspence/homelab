@@ -1,0 +1,1 @@
+{"jobID":"a80bbafd-d78f-c9e1-b11e-1a3b64be7d83","spec":{"type":"policy","cause":{"Message":"","User":"Joshua Spence \u003cjosh@joshuaspence.com\u003e"},"spec":{"flux:helmrelease/flux":{"add":{"tag.memcached":"semver:~1.5"},"remove":{}}}},"result":null}
