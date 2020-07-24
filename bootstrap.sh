@@ -4,20 +4,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# Create deployment key and upload to GitHub.
-readonly FLUX_KEY="${HOME}/.ssh/keys/flux"
-
-if ! test -f "${FLUX_KEY}"; then
-  # Generate a new key.
-  ssh-keygen -C flux -f "${FLUX_KEY}" -N '' -q -t ed25519
-
-  # Delete existing deployment keys.
-  gh api repos/:owner/:repo/keys | jq '.[] | .id' | xargs --replace gh api repos/:owner/:repo/keys/{} --method DELETE
-
-  # Create a new deployment key.
-  gh api repos/:owner/:repo/keys --field 'title=Flux' --field "key=@${FLUX_KEY}.pub" --field 'read_only=false' >/dev/null
-fi
-
 # Print commands as they are executed.
 trap 'echo "# $BASH_COMMAND"' DEBUG
 
@@ -29,7 +15,7 @@ done
 
 # Bootstrap Flux (see https://docs.fluxcd.io/en/1.18.0/tutorials/get-started-helm.html).
 kubectl create namespace flux
-kubectl --namespace flux create secret generic flux-git-deploy --from-file "identity=${FLUX_KEY}"
+sops --decrypt src/flux/secret.yaml | kubectl apply --filename -
 for CHART in flux helm-operator; do
   helm install --namespace $(yq read "src/flux/${CHART}.yaml" metadata.namespace) --repo $(yq read "src/flux/${CHART}.yaml" spec.chart.repository) --values <(yq read "src/flux/${CHART}.yaml" spec.values) --version $(yq read "src/flux/${CHART}.yaml" spec.chart.version) $(yq read "src/flux/${CHART}.yaml" spec.releaseName) $(yq read "src/flux/${CHART}.yaml" spec.chart.name) >/dev/null
 done

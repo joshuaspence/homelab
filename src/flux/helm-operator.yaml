@@ -18,7 +18,7 @@ spec:
       tag: '1.1.0'
     git:
       ssh:
-        secretName: 'flux-git-deploy'
+        secretName: 'flux-git'
     helm:
       versions: 'v3'
     prometheus:
