@@ -19,6 +19,11 @@ jobs:
         files: 'src'
         strict: false
         ignore_missing_schemas: true
+  shellcheck:
+    runs-on: 'ubuntu-latest'
+    steps:
+    - uses: 'actions/checkout@v2'
+    - uses: 'ludeeus/action-shellcheck@0.4.1'
   yamllint:
     runs-on: 'ubuntu-latest'
     steps:
