@@ -7,8 +7,6 @@ jobs:
     steps:
       - uses: 'actions/checkout@v2'
       - uses: 'snow-actions/eclint@v1.0.1'
-        with:
-          args: 'check'
   hrval:
     runs-on: 'ubuntu-latest'
     steps:
