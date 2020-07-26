@@ -13,13 +13,14 @@ jobs:
       - uses: 'actions/checkout@v2'
       - uses: 'stefanprodan/hrval-action@24972b57206860a7843ae6e65fa478d73f169b04'
         with:
-          helmRelease: 'src/'
+          helmRelease: 'src'
+          kubernetesVersion: 'master'
           helmVersion: 'v3'
   kubeval:
     runs-on: 'ubuntu-latest'
     steps:
       - uses: 'actions/checkout@v2'
-      - uses: 'instrumenta/kubeval-action@master'
+      - uses: 'instrumenta/kubeval-action@5915e4adba5adccac07cb156b82e54c3fed74921'
         with:
           files: 'src'
           strict: false
