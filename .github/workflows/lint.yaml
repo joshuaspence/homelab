@@ -3,6 +3,13 @@ on:
   push: {}
   pull_request: {}
 jobs:
+  eclint:
+    runs-on: 'ubuntu-latest'
+    steps:
+    - uses: 'actions/checkout@v2'
+    - uses: 'snow-actions/eclint@v1.0.1'
+      with:
+        args: 'check'
   kubeval:
     runs-on: 'ubuntu-latest'
     steps:

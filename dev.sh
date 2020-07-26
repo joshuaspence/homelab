@@ -23,5 +23,5 @@ EOF
 # Bootstrap Flux.
 ./bootstrap.sh
 
-# Make ingress work (see https://kind.sigs.k8s.io/docs/user/ingress#using-ingress). 
+# Make ingress work (see https://kind.sigs.k8s.io/docs/user/ingress#using-ingress).
 kubectl --namespace kube-system patch deployment nginx-ingress-controller --patch '{"spec":{"template":{"spec":{"containers":[{"name":"nginx-ingress-controller","ports":[{"containerPort":80,"hostPort":80},{"containerPort":443,"hostPort":443}]}]}}}}'
