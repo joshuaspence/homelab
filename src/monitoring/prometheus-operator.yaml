@@ -26,7 +26,7 @@ spec:
       ingress:
         enabled: true
         hosts:
-        - 'prometheus.local'
+          - 'prometheus.local'
       prometheusSpec:
         image:
           repository: 'quay.io/prometheus/prometheus'
@@ -42,7 +42,7 @@ spec:
       ingress:
         enabled: true
         hosts:
-        - 'alertmanager.local'
+          - 'alertmanager.local'
     grafana:
       image:
         repository: 'grafana/grafana'
@@ -50,7 +50,7 @@ spec:
       ingress:
         enabled: true
         hosts:
-        - 'grafana.local'
+          - 'grafana.local'
       sidecar:
         dashboards:
           enabled: true
