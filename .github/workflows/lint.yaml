@@ -1,8 +1,6 @@
 ---
 name: 'Lint'
-on:
-  push: {}
-  pull_request: {}
+on: 'push'
 jobs:
   eclint:
     runs-on: 'ubuntu-latest'
@@ -11,6 +9,14 @@ jobs:
       - uses: 'snow-actions/eclint@v1.0.1'
         with:
           args: 'check'
+  hrval:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v2'
+      - uses: 'stefanprodan/hrval-action@24972b57206860a7843ae6e65fa478d73f169b04'
+        with:
+          helmRelease: 'src/'
+          helmVersion: 'v3'
   kubeval:
     runs-on: 'ubuntu-latest'
     steps:
