@@ -3,6 +3,15 @@ on:
   push: {}
   pull_request: {}
 jobs:
+  kubeval:
+    runs-on: 'ubuntu-latest'
+    steps:
+    - uses: 'actions/checkout@v2'
+    - uses: 'instrumenta/kubeval-action@master'
+      with:
+        files: 'src'
+        strict: false
+        ignore_missing_schemas: true
   yamllint:
     runs-on: 'ubuntu-latest'
     steps:
