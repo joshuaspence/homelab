@@ -18,7 +18,13 @@ spec:
       repository: 'stefanprodan/podinfo'
       tag: '4.0.6'
     ingress:
+      annotations:
+        cert-manager.io/cluster-issuer: 'letsencrypt'
       enabled: true
       path: '/'
       hosts:
         - 'podinfo.spence.network'
+      tls:
+        - hosts:
+            - 'podinfo.spence.network'
+          secretName: 'podinfo-tls'

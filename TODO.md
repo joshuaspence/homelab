@@ -1,7 +1,4 @@
 = Helm Charts =
-- `cert-manager`
-  - https://github.com/onedr0p/k3s-gitops/tree/master/deployments/cert-manager
-  - https://github.com/billimek/k8s-gitops/tree/master/cert-manager
 - `descheduler`
   - https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/descheduler/descheduler.yaml
   - https://github.com/billimek/k8s-gitops/tree/master/kube-system/descheduler

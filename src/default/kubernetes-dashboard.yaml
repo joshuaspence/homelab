@@ -18,12 +18,16 @@ spec:
       tag: 'v2.0.3'
     extraArgs:
       - '--enable-skip-login'
-      - '--enable-insecure-login'
-    protocolHttp: true
     ingress:
+      annotations:
+        cert-manager.io/cluster-issuer: 'letsencrypt'
       enabled: true
       hosts:
         - 'kubernetes-dashboard.spence.network'
+      tls:
+        - hosts:
+            - 'kubernetes-dashboard.spence.network'
+          secretName: 'kubernetes-dashboard-tls'
     metricsScraper:
       enabled: false
       image:
