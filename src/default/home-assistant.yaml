@@ -16,11 +16,11 @@ spec:
   values:
     image:
       repository: 'homeassistant/home-assistant'
-      tag: '0.113.0'
+      tag: '0.113.1'
     ingress:
       enabled: true
       hosts:
-        - 'home-assistant.local'
+      - 'home-assistant.local'
     monitoring:
       enabled: true
       serviceMonitor:
