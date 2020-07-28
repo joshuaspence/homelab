@@ -12,7 +12,7 @@ function xtrace() {
       return;;
   esac
 
-  echo "# ${BASH_COMMAND}"
+  echo "# ${BASH_COMMAND}" | CHART="${CHART:-}" CRD="${CRD:-}" envsubst
 }
 trap xtrace DEBUG
 
