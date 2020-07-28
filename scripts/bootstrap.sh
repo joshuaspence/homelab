@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# Print commands as they are executed.
+# Print commands as they are executed, similar to `set -o xtrace`.
 function xtrace() {
   # Skip uninteresting commands.
   case "${BASH_COMMAND%% *}" in
