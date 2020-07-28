@@ -12,15 +12,13 @@ function xtrace() {
       return;;
   esac
 
-  echo "# ${BASH_COMMAND}" | CHART="${CHART:-}" CRD="${CRD:-}" envsubst
+  echo "# ${BASH_COMMAND}" | CHART="${CHART:-}" envsubst
 }
 trap xtrace DEBUG
 
 # Create CRDs first to avoid dependency hell.
 kubectl apply --filename https://raw.githubusercontent.com/fluxcd/helm-operator/master/deploy/crds.yaml
-for CRD in alertmanagers podmonitors prometheuses prometheusrules servicemonitors thanosrulers; do
-  kubectl apply --filename "https://raw.githubusercontent.com/coreos/prometheus-operator/master/example/prometheus-operator-crd/monitoring.coreos.com_${CRD}.yaml"
-done
+kubectl apply --filename=https://raw.githubusercontent.com/coreos/prometheus-operator/master/example/prometheus-operator-crd/monitoring.coreos.com_{alertmanagers,podmonitors,prometheuses,prometheusrules,servicemonitors,thanosrulers}.yaml
 
 # Bootstrap Flux (see https://docs.fluxcd.io/en/1.18.0/tutorials/get-started-helm.html).
 kubectl create namespace flux
