@@ -24,7 +24,7 @@ done
 
 # Bootstrap Flux (see https://docs.fluxcd.io/en/1.18.0/tutorials/get-started-helm.html).
 kubectl create namespace flux
-sops --decrypt src/flux/secrets.yaml | kubectl apply --filename -
+kubectl apply --filename <(sops --decrypt src/flux/secrets.yaml)
 for CHART in flux helm-operator; do
   helm install \
     --namespace "$(yq read "src/flux/${CHART}.yaml" metadata.namespace)" \
