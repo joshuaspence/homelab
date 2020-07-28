@@ -5,7 +5,16 @@ set -o nounset
 set -o pipefail
 
 # Print commands as they are executed.
-trap '[[ $BASH_COMMAND == for\ * ]] || echo "# $BASH_COMMAND"' DEBUG
+function xtrace() {
+  # Skip uninteresting commands.
+  case "${BASH_COMMAND%% *}" in
+    for|if)
+      return;;
+  esac
+
+  echo "# ${BASH_COMMAND}"
+}
+trap xtrace DEBUG
 
 # Create CRDs first to avoid dependency hell.
 kubectl apply --filename https://raw.githubusercontent.com/fluxcd/helm-operator/master/deploy/crds.yaml
