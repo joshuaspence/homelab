@@ -15,7 +15,7 @@ spec:
   values:
     image:
       repository: 'docker.io/fluxcd/helm-operator'
-      tag: '1.1.0'
+      tag: '1.2.0'
     git:
       ssh:
         secretName: 'flux-git'
