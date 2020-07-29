@@ -6,13 +6,16 @@ set -o pipefail
 
 # Print commands as they are executed, similar to `set -o xtrace`.
 function xtrace() {
-  # Skip uninteresting commands.
   case "${BASH_COMMAND%% *}" in
-    for|if)
-      return;;
-  esac
+    # Skip uninteresting commands.
+    for)
+      return
+      ;;
 
-  echo "# ${BASH_COMMAND}" | CHART="${CHART:-}" envsubst
+    *)
+      echo "# ${BASH_COMMAND}" | CHART="${CHART:-}" envsubst
+      ;;
+  esac
 }
 trap xtrace DEBUG
 
