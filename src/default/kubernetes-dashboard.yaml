@@ -10,7 +10,7 @@ spec:
   chart:
     repository: 'https://kubernetes.github.io/dashboard/'
     name: 'kubernetes-dashboard'
-    version: '2.2.0'
+    version: '2.3.0'
   releaseName: 'kubernetes-dashboard'
   values:
     image:
