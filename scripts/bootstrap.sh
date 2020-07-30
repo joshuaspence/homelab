@@ -32,8 +32,7 @@ for CHART in flux helm-operator; do
     --values <(yq read "src/flux/${CHART}.yaml" spec.values) \
     --version "$(yq read "src/flux/${CHART}.yaml" spec.chart.version)" \
     "$(yq read "src/flux/${CHART}.yaml" spec.releaseName)" \
-    "$(yq read "src/flux/${CHART}.yaml" spec.chart.name)" \
-    >/dev/null
+    "$(yq read "src/flux/${CHART}.yaml" spec.chart.name)"
 done
 
 # Force a sync.
