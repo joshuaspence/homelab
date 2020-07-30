@@ -39,7 +39,7 @@ done
 # NOTE: We use `retry` to workaround https://github.com/fluxcd/flux/issues/3200.
 kubectl --namespace flux rollout status deployment/flux
 kubectl --namespace flux rollout status deployment/helm-operator
-retry --delay=5 --times=10 -- fluxctl --k8s-fwd-ns flux sync
+retry --delay 5 --times 10 -- fluxctl --k8s-fwd-ns flux sync
 
 # Wait for all Helm releases to be installed.
 kubectl wait --all --all-namespaces --for condition=released --timeout 10m helmrelease
