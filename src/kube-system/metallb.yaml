@@ -1,0 +1,34 @@
+---
+apiVersion: 'helm.fluxcd.io/v1'
+kind: 'HelmRelease'
+metadata:
+  name: 'metallb'
+  namespace: 'kube-system'
+  annotations:
+    fluxcd.io/automated: 'true'
+spec:
+  chart:
+    repository: 'https://kubernetes-charts.storage.googleapis.com'
+    name: 'metallb'
+    version: '0.12.0'
+  releaseName: 'metallb'
+  values:
+    configInline:
+      address-pools:
+        - name: 'default'
+          protocol: 'layer2'
+          addresses:
+            - '192.168.2.0/24'
+    prometheus:
+      serviceMonitor:
+        enabled: true
+      prometheusRule:
+        enabled: true
+    controller:
+      image:
+        repository: 'metallb/controller'
+        tag: 'v0.8.1'
+    speaker:
+      image:
+        repository: 'metallb/speaker'
+        tag: 'v0.8.1'
