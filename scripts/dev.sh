@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 
 # Create Kubernetes cluster.
-kind create cluster --config kind.yaml
+kind create cluster
 
 # Bootstrap Flux.
 ./scripts/bootstrap.sh
