@@ -8,7 +8,8 @@ metadata:
     fluxcd.io/automated: 'true'
     repository.fluxcd.io/memcached: 'memcached.repository'
     tag.fluxcd.io/memcached: 'memcached.tag'
-    filter.fluxcd.io/memcached: 'semver:~1'
+    filter.fluxcd.io/chart-image: 'semver:*'
+    filter.fluxcd.io/memcached: 'semver:*'
 spec:
   chart:
     repository: 'https://charts.fluxcd.io'
