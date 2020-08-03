@@ -18,7 +18,7 @@ spec:
         - name: 'default'
           protocol: 'layer2'
           addresses:
-            - '192.168.2.0/24'
+            - '172.100.1.0/24'
     prometheus:
       serviceMonitor:
         enabled: true

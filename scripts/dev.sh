@@ -4,13 +4,19 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+# Create a custom Docker network.
+if ! docker network inspect homelab &>/dev/null; then
+  docker network create \
+    --driver bridge \
+    --ip-range 172.100.0.0/24 \
+    --opt com.docker.network.bridge.enable_ip_masquerade=true \
+    --subnet 172.100.0.0/16 \
+    homelab
+fi
+export KIND_EXPERIMENTAL_DOCKER_NETWORK=homelab
+
 # Create Kubernetes cluster.
 kind create cluster
 
 # Bootstrap Flux.
 ./scripts/bootstrap.sh
-
-# Add routes for MetalLB.
-for ADDRESS in $(yq read src/kube-system/metallb.yaml 'spec.values.configInline.address-pools[*].addresses[*]'); do
-  sudo ip route replace "${ADDRESS}" dev "br-$(docker network ls --filter name=kind --quiet)"
-done
