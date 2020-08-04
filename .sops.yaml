@@ -1,4 +1,6 @@
 ---
 creation_rules:
-  - pgp: '7A9A7C3C477E67A2'
+  - pgp: >-
+      7A9A7C3C477E67A2,
+      31F9EEC019716222
     encrypted_regex: '^(data)$'
