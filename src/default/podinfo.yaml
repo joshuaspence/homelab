@@ -21,4 +21,4 @@ spec:
       enabled: true
       path: '/'
       hosts:
-        - 'podinfo.local'
+        - 'podinfo.spence.network'

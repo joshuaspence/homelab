@@ -23,7 +23,7 @@ spec:
     ingress:
       enabled: true
       hosts:
-        - 'kubernetes-dashboard.local'
+        - 'kubernetes-dashboard.spence.network'
     metricsScraper:
       enabled: false
       image:

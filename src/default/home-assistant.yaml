@@ -20,7 +20,7 @@ spec:
     ingress:
       enabled: true
       hosts:
-      - 'home-assistant.local'
+      - 'home-assistant.spence.network'
     monitoring:
       enabled: true
       serviceMonitor:

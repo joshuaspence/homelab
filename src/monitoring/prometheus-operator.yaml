@@ -26,7 +26,7 @@ spec:
       ingress:
         enabled: true
         hosts:
-        - 'prometheus.local'
+        - 'prometheus.spence.network'
       prometheusSpec:
         image:
           repository: 'quay.io/prometheus/prometheus'
@@ -37,7 +37,7 @@ spec:
       thanosIngress:
         enabled: true
         hosts:
-        - 'thanos.local'
+        - 'thanos.spence.network'
     alertmanager:
       alertmanagerSpec:
         image:
@@ -46,7 +46,7 @@ spec:
       ingress:
         enabled: true
         hosts:
-        - 'alertmanager.local'
+        - 'alertmanager.spence.network'
     grafana:
       image:
         repository: 'grafana/grafana'
@@ -54,7 +54,7 @@ spec:
       ingress:
         enabled: true
         hosts:
-        - 'grafana.local'
+        - 'grafana.spence.network'
       sidecar:
         dashboards:
           enabled: true
