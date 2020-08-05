@@ -11,7 +11,7 @@ spec:
   chart:
     repository: 'https://billimek.com/billimek-charts/'
     name: 'home-assistant'
-    version: '1.0.3'
+    version: '1.0.4'
   releaseName: 'home-assistant'
   values:
     image:
