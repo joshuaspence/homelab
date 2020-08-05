@@ -5,8 +5,8 @@ metadata:
   name: 'helm-operator'
   namespace: 'flux'
   annotations:
-    fluxcd.io/automated: 'true'
     filter.fluxcd.io/chart-image: 'semver:*'
+    fluxcd.io/automated: 'true'
 spec:
   chart:
     repository: 'https://charts.fluxcd.io'
@@ -28,4 +28,3 @@ spec:
       enabled: true
       serviceMonitor:
         create: true
-
