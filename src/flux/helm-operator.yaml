@@ -14,17 +14,18 @@ spec:
     version: '1.2.0'
   releaseName: 'helm-operator'
   values:
-    image:
-      repository: 'docker.io/fluxcd/helm-operator'
-      tag: '1.2.0'
+    dashboards:
+      enabled: true
     git:
       ssh:
         secretName: 'flux-git'
     helm:
       versions: 'v3'
+    image:
+      repository: 'docker.io/fluxcd/helm-operator'
+      tag: '1.2.0'
     prometheus:
       enabled: true
       serviceMonitor:
         create: true
-    dashboards:
-      enabled: true
+

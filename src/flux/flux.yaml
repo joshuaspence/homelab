@@ -17,18 +17,18 @@ spec:
     version: '1.4.0'
   releaseName: 'flux'
   values:
-    image:
-      repository: 'docker.io/fluxcd/flux'
-      tag: '1.20.1'
+    dashboards:
+      enabled: true
     git:
-      url: 'git@github.com:joshuaspence/homelab.git'
       branch: 'master'
       path: 'src'
       secretName: 'flux-git'
+      url: 'git@github.com:joshuaspence/homelab.git'
     gpgKeys:
       secretName: 'flux-gpg'
-    sops:
-      enabled: true
+    image:
+      repository: 'docker.io/fluxcd/flux'
+      tag: '1.20.1'
     memcached:
       repository: 'memcached'
       tag: '1.6.6'
@@ -36,7 +36,7 @@ spec:
       enabled: true
       serviceMonitor:
         create: true
-    syncGarbageCollection:
+    sops:
       enabled: true
-    dashboards:
+    syncGarbageCollection:
       enabled: true
