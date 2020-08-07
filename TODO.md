@@ -1,62 +1,62 @@
 # Helm Charts
 
 - `descheduler`
-  - https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/descheduler/descheduler.yaml
-  - https://github.com/billimek/k8s-gitops/tree/master/kube-system/descheduler
+  - <https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/descheduler/descheduler.yaml>
+  - <https://github.com/billimek/k8s-gitops/tree/master/kube-system/descheduler>
 - [`external-dns`](https://github.com/kubernetes-sigs/external-dns)
 - [`flux-ui`](https://github.com/sureshamk/flux-ui)
 - [`flux-web`](https://github.com/flux-web/flux-web)
 - [`goldilocks`](https://github.com/billimek/k8s-gitops/tree/master/default/goldilocks)
 - `home-assistant`
-  - https://github.com/onedr0p/k3s-gitops/tree/master/deployments/default/home-assistant
-  - https://github.com/blackjid/homelab-gitops/tree/master/default/home-assistant
-  - https://github.com/billimek/k8s-gitops/blob/master/default/home-assistant/home-assistant.yaml
-  - https://github.com/billimek/home-assistant-config
+  - <https://github.com/onedr0p/k3s-gitops/tree/master/deployments/default/home-assistant>
+  - <https://github.com/blackjid/homelab-gitops/tree/master/default/home-assistant>
+  - <https://github.com/billimek/k8s-gitops/blob/master/default/home-assistant/home-assistant.yaml>
+  - <https://github.com/billimek/home-assistant-config>
 - [`ingress-monitor-controller`](https://github.com/blackjid/homelab-gitops/tree/master/monitoring/ingress-monitor-controller)
 - `kured`
-  - https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/kured.yaml
-  - https://github.com/billimek/k8s-gitops/tree/master/kube-system/kured
+  - <https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/kured.yaml>
+  - <https://github.com/billimek/k8s-gitops/tree/master/kube-system/kured>
 - `loki`
-  - https://github.com/onedr0p/k3s-gitops/tree/master/deployments/logging
-  - https://github.com/blackjid/homelab-gitops/tree/master/logs/loki
-  - https://github.com/billimek/k8s-gitops/tree/master/logs
+  - <https://github.com/onedr0p/k3s-gitops/tree/master/deployments/logging>
+  - <https://github.com/blackjid/homelab-gitops/tree/master/logs/loki>
+  - <https://github.com/billimek/k8s-gitops/tree/master/logs>
 - [`longhorn`](https://github.com/blackjid/homelab-gitops/tree/master/longhorn-system)
 - [`metrics-server`](https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/metrics-server.yaml)
 - `nfs-client-provisioner`
-  - https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/nfs-client-provisioner.yaml
-  - https://github.com/blackjid/homelab-gitops/tree/master/kube-system/nfs-client-provisioner
-  - https://github.com/billimek/k8s-gitops/tree/master/kube-system/nfs-client-provisioner
+  - <https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/nfs-client-provisioner.yaml>
+  - <https://github.com/blackjid/homelab-gitops/tree/master/kube-system/nfs-client-provisioner>
+  - <https://github.com/billimek/k8s-gitops/tree/master/kube-system/nfs-client-provisioner>
 - `nfs-pv`
-  - https://github.com/blackjid/homelab-gitops/tree/master/kube-system/nfs-pv
-  - https://github.com/billimek/k8s-gitops/tree/master/kube-system/nfs-pv
+  - <https://github.com/blackjid/homelab-gitops/tree/master/kube-system/nfs-pv>
+  - <https://github.com/billimek/k8s-gitops/tree/master/kube-system/nfs-pv>
 - `nginx-ingress`
-  - https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/nginx-ingress.yaml
-  - https://github.com/blackjid/homelab-gitops/blob/master/kube-system/nginx/nginx-helm-release.yaml
-  - https://github.com/billimek/k8s-gitops/tree/master/kube-system/nginx
+  - <https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/nginx-ingress.yaml>
+  - <https://github.com/blackjid/homelab-gitops/blob/master/kube-system/nginx/nginx-helm-release.yaml>
+  - <https://github.com/billimek/k8s-gitops/tree/master/kube-system/nginx>
 - `node-feature-discovery`
-  - https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/node-feature-discovery/node-feature-discovery.yaml
-  - https://github.com/blackjid/homelab-gitops/tree/master/kube-system/node-feature-discovery
-  - https://github.com/billimek/k8s-gitops/tree/master/kube-system/node-feature-discovery
+  - <https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/node-feature-discovery/node-feature-discovery.yaml>
+  - <https://github.com/blackjid/homelab-gitops/tree/master/kube-system/node-feature-discovery>
+  - <https://github.com/billimek/k8s-gitops/tree/master/kube-system/node-feature-discovery>
 - `oauth2-proxy`
-  - https://github.com/blackjid/homelab-gitops/tree/master/kube-system/oauth2-proxy
-  - https://github.com/billimek/k8s-gitops/tree/master/kube-system/oauth2-proxy
+  - <https://github.com/blackjid/homelab-gitops/tree/master/kube-system/oauth2-proxy>
+  - <https://github.com/billimek/k8s-gitops/tree/master/kube-system/oauth2-proxy>
 - `prometheus-operator`
-  - https://github.com/onedr0p/k3s-gitops/tree/master/deployments/monitoring/prometheus-operator
-  - https://github.com/blackjid/homelab-gitops/tree/master/monitoring/prometheus-operator
-  - https://github.com/billimek/k8s-gitops/tree/master/monitoring/prometheus-operator
+  - <https://github.com/onedr0p/k3s-gitops/tree/master/deployments/monitoring/prometheus-operator>
+  - <https://github.com/blackjid/homelab-gitops/tree/master/monitoring/prometheus-operator>
+  - <https://github.com/billimek/k8s-gitops/tree/master/monitoring/prometheus-operator>
 - `rook-ceph`
-  - https://github.com/onedr0p/k3s-gitops/tree/master/deployments/rook-ceph
-  - https://github.com/billimek/k8s-gitops/tree/master/rook-ceph
+  - <https://github.com/onedr0p/k3s-gitops/tree/master/deployments/rook-ceph>
+  - <https://github.com/billimek/k8s-gitops/tree/master/rook-ceph>
 - `sealed-secrets`
-  - https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/sealed-secrets.yaml)
+  - <https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/sealed-secrets.yaml>
 - [`speedtest-prometheus`](https://github.com/billimek/k8s-gitops/tree/master/monitoring/speedtest-prometheus)
 - [`system-upgrade`](https://github.com/billimek/k8s-gitops/tree/master/system-upgrade)
 - [`unifi`](https://github.com/billimek/k8s-gitops/tree/master/default/unifi)
 - [`uptimerobot-heartbeat`](https://github.com/onedr0p/k3s-gitops/blob/master/deployments/monitoring/uptimerobot-heartbeat.yaml)
 - [`uptimerobot-prometheus`](https://github.com/billimek/k8s-gitops/tree/master/monitoring/uptimerobot-prometheus`)
 - Velero
-  - https://github.com/onedr0p/k3s-gitops/tree/master/deployments/velero
-  - https://github.com/billimek/k8s-gitops/tree/master/velero
+  - <https://github.com/onedr0p/k3s-gitops/tree/master/deployments/velero>
+  - <https://github.com/billimek/k8s-gitops/tree/master/velero>
 
 = Helm Settings =
 See [`HelmRelease` Custom Resource](https://github.com/fluxcd/helm-operator/blob/master/docs/references/helmrelease-custom-resource.md).

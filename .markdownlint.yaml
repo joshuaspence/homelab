@@ -1,9 +1,18 @@
 ---
 default: true
 
+code-block-style:
+  style: 'fenced'
+code-fence-style:
+  style: 'backtick'
 heading-style:
   style: 'atx'
+hr-style:
+  style: '---'
 line-length: false
-no-bare-urls: false
+no-trailing-spaces:
+  br_spaces: 0
+ol-prefix:
+  style: 'ordered'
 ul-style:
   style: 'dash'
