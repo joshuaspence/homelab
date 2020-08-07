@@ -4,6 +4,8 @@
   - https://github.com/onedr0p/k3s-gitops/blob/master/deployments/kube-system/descheduler/descheduler.yaml
   - https://github.com/billimek/k8s-gitops/tree/master/kube-system/descheduler
 - [`external-dns`](https://github.com/kubernetes-sigs/external-dns)
+- [`flux-ui`](https://github.com/sureshamk/flux-ui)
+- [`flux-web`](https://github.com/flux-web/flux-web)
 - [`goldilocks`](https://github.com/billimek/k8s-gitops/tree/master/default/goldilocks)
 - `home-assistant`
   - https://github.com/onedr0p/k3s-gitops/tree/master/deployments/default/home-assistant
