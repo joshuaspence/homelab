@@ -46,7 +46,8 @@ rules:
     check-multi-line-strings: true
   key-duplicates: 'enable'
   key-ordering: 'disable'
-  line-length: 'disable'
+  line-length:
+    max: 80
   new-line-at-end-of-file: 'enable'
   new-lines:
     type: 'unix'
