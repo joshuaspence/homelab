@@ -24,6 +24,7 @@ rules:
     max-spaces-after: 1
   comments:
     require-starting-space: true
+    min-spaces-from-content: 2
   comments-indentation: 'enable'
   document-end:
     present: false
@@ -39,6 +40,7 @@ rules:
   indentation:
     spaces: 2
     indent-sequences: 'consistent'
+    check-multi-line-strings: true
   key-duplicates: 'enable'
   key-ordering: 'disable'
   line-length: 'disable'
@@ -50,6 +52,6 @@ rules:
   quoted-strings:
     quote-type: 'single'
     required: true
-  trailing-spaces: 'disable'
+  trailing-spaces: 'enable'
   truthy:
     check-keys: false
