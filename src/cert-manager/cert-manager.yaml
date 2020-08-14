@@ -5,6 +5,9 @@ metadata:
   name: 'cert-manager'
   namespace: 'cert-manager'
   annotations:
+    filter.fluxcd.io/cainjector: 'semver:*'
+    filter.fluxcd.io/chart-image: 'semver:*'
+    filter.fluxcd.io/webhook: 'semver:*'
     fluxcd.io/automated: 'true'
 spec:
   chart:
