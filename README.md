@@ -11,3 +11,8 @@ onto a cluster of [Raspberry Pis](https://github.com/joshuaspence/raspberry_pi).
 
 Bootstrapping the cluster should be as simple as running
 [`scripts/bootstrap.sh`](scripts/bootstrap.sh).
+
+## Secrets
+
+Secrets are encrypted with [SOPS](https://github.com/mozilla/sops) and committed
+to this repository in `*.sops.yaml` files.
