@@ -4,6 +4,9 @@ yaml-files:
   - '*.yml'
   - '.yamllint'
 
+ignore: |-
+  *.sops.yaml
+
 rules:
   braces:
     min-spaces-inside: 1
