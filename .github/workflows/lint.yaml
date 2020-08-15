@@ -20,12 +20,11 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - uses: 'actions/checkout@v2'
-      - uses: 'instrumenta/kubeval-action@5915e4a'
+      - uses: 'instrumenta/kubeval-action@a4e3d91'
         with:
           files: 'src'
           version: 'master'
-          strict: false
-          ignore_missing_schemas: true
+          ignored_path_patterns: '\.sops\.yaml$'
   markdownlint:
     runs-on: 'ubuntu-latest'
     steps:
