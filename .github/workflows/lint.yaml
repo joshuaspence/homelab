@@ -7,15 +7,6 @@ jobs:
     steps:
       - uses: 'actions/checkout@v2'
       - uses: 'snow-actions/eclint@v1.0.1'
-  hrval:
-    runs-on: 'ubuntu-latest'
-    steps:
-      - uses: 'actions/checkout@v2'
-      - uses: 'stefanprodan/hrval-action@v3.3.1'
-        with:
-          helmRelease: 'src'
-          kubernetesVersion: 'master'
-          helmVersion: 'v3'
   kubeval:
     runs-on: 'ubuntu-latest'
     steps:
@@ -25,6 +16,11 @@ jobs:
           files: 'src'
           version: 'master'
           ignored_path_patterns: '\.sops\.yaml$'
+      - uses: 'stefanprodan/hrval-action@v3.3.1'
+        with:
+          helmRelease: 'src'
+          kubernetesVersion: 'master'
+          helmVersion: 'v3'
   markdownlint:
     runs-on: 'ubuntu-latest'
     steps:
