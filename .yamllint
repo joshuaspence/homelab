@@ -40,7 +40,15 @@ rules:
     indent-sequences: 'consistent'
     spaces: 2
   key-duplicates: 'enable'
-  key-ordering: 'disable'
+  key-ordering:
+    ignore: |-
+      # Keys are sorted based on the order they appear in documentation
+      # rather than alphabetically.
+      #
+      # See also https://github.com/adrienverge/yamllint/issues/178.
+      /.github/dependabot.yaml
+      /.github/workflows/*.yaml
+      /.markdownlint.yaml
   line-length:
     max: 80
   new-line-at-end-of-file: 'enable'

@@ -6,18 +6,18 @@ metadata:
 spec:
   acme:
     email: 'josh@joshuaspence.com'
-    server: 'https://acme-staging-v02.api.letsencrypt.org/directory'
     privateKeySecretRef:
       name: 'letsencrypt-staging'
+    server: 'https://acme-staging-v02.api.letsencrypt.org/directory'
     solvers:
       - dns01:
           route53:
-            region: 'ap-southeast-2'
-            hostedZoneID: 'Z8WQJGKO99WMI'
             accessKeyID: 'AKIAUFWWWHZD52ZSO6WC'
+            hostedZoneID: 'Z8WQJGKO99WMI'
+            region: 'ap-southeast-2'
             secretAccessKeySecretRef:
-              name: 'route53-iam'
               key: 'secret-access-key'
+              name: 'route53-iam'
         selector:
           dnsZones:
             - 'spence.network'

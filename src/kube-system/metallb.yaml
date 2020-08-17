@@ -15,10 +15,10 @@ spec:
   values:
     configInline:
       address-pools:
-        - name: 'default'
-          protocol: 'layer2'
-          addresses:
+        - addresses:
             - '172.100.1.0/24'
+          name: 'default'
+          protocol: 'layer2'
     controller:
       image:
         repository: 'metallb/controller'
