@@ -22,7 +22,7 @@ spec:
     git:
       branch: 'master'
       path: 'src'
-      secretName: 'flux-git'
+      secretName: 'flux-git-deploy'
       url: 'git@github.com:joshuaspence/homelab.git'
     gpgKeys:
       secretName: 'flux-gpg'

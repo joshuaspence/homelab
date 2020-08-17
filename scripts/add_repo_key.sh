@@ -7,7 +7,7 @@ set -o pipefail
 readonly PRIVATE_KEY=$(
   sops --decrypt src/flux/secrets.sops.yaml |
     yq read --collect --doc '*' - |
-    yq read - '(metadata.name==flux-git).data.identity' |
+    yq read - '(metadata.name==flux-git-deploy).data.identity' |
     base64 --decode
 )
 readonly PUBLIC_KEY=$(echo "${PRIVATE_KEY}" | ssh-keygen -f /dev/stdin -y)
