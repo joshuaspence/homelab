@@ -2,15 +2,15 @@
 apiVersion: 'helm.fluxcd.io/v1'
 kind: 'HelmRelease'
 metadata:
-  name: 'home-assistant'
-  namespace: 'default'
   annotations:
     fluxcd.io/automated: 'true'
     fluxcd.io/tag.chart-image: 'semver:~0.'
+  name: 'home-assistant'
+  namespace: 'default'
 spec:
   chart:
-    repository: 'https://billimek.com/billimek-charts/'
     name: 'home-assistant'
+    repository: 'https://billimek.com/billimek-charts/'
     version: '1.0.4'
   releaseName: 'home-assistant'
   values:
@@ -22,11 +22,11 @@ spec:
         cert-manager.io/cluster-issuer: 'letsencrypt'
       enabled: true
       hosts:
-      - 'home-assistant.spence.network'
-      tls:
-      - hosts:
         - 'home-assistant.spence.network'
-        secretName: 'home-assistant-tls'
+      tls:
+        - hosts:
+            - 'home-assistant.spence.network'
+          secretName: 'home-assistant-tls'
     monitoring:
       enabled: true
       serviceMonitor:

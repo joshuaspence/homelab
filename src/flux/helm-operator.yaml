@@ -2,15 +2,15 @@
 apiVersion: 'helm.fluxcd.io/v1'
 kind: 'HelmRelease'
 metadata:
-  name: 'helm-operator'
-  namespace: 'flux'
   annotations:
     filter.fluxcd.io/chart-image: 'semver:*'
     fluxcd.io/automated: 'true'
+  name: 'helm-operator'
+  namespace: 'flux'
 spec:
   chart:
-    repository: 'https://charts.fluxcd.io'
     name: 'helm-operator'
+    repository: 'https://charts.fluxcd.io'
     version: '1.2.0'
   releaseName: 'helm-operator'
   values:

@@ -14,13 +14,13 @@ jobs:
       - uses: 'instrumenta/kubeval-action@a4e3d91'
         with:
           files: 'src'
-          version: 'master'
           ignored_path_patterns: '\.sops\.yaml$'
+          version: 'master'
       - uses: 'stefanprodan/hrval-action@v3.3.1'
         with:
           helmRelease: 'src'
-          kubernetesVersion: 'master'
           helmVersion: 'v3'
+          kubernetesVersion: 'master'
   markdownlint:
     runs-on: 'ubuntu-latest'
     steps:

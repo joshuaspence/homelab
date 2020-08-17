@@ -2,54 +2,19 @@
 apiVersion: 'helm.fluxcd.io/v1'
 kind: 'HelmRelease'
 metadata:
-  name: 'prometheus-operator'
-  namespace: 'monitoring'
   annotations:
     fluxcd.io/automated: 'true'
     fluxcd.io/tag.grafana: 'semver:~7'
     fluxcd.io/tag.prometheusOperator: 'semver:~0'
+  name: 'prometheus-operator'
+  namespace: 'monitoring'
 spec:
   chart:
-    repository: 'https://kubernetes-charts.storage.googleapis.com'
     name: 'prometheus-operator'
+    repository: 'https://kubernetes-charts.storage.googleapis.com'
     version: '9.3.1'
   releaseName: 'prometheus-operator'
   values:
-    prometheusOperator:
-      image:
-        repository: 'quay.io/coreos/prometheus-operator'
-        tag: 'v0.41.1'
-      prometheusConfigReloaderImage:
-        repository: 'quay.io/coreos/prometheus-config-reloader'
-        tag: 'v0.38.1'
-    prometheus:
-      ingress:
-        annotations:
-          cert-manager.io/cluster-issuer: 'letsencrypt'
-        enabled: true
-        hosts:
-        - 'prometheus.spence.network'
-        tls:
-        - hosts:
-          - 'prometheus.spence.network'
-          secretName: 'prometheus-tls'
-      prometheusSpec:
-        image:
-          repository: 'quay.io/prometheus/prometheus'
-          tag: 'v2.18.2'
-        ruleSelectorNilUsesHelmValues: false
-        serviceMonitorSelectorNilUsesHelmValues: false
-        podMonitorSelectorNilUsesHelmValues: false
-      thanosIngress:
-        annotations:
-          cert-manager.io/cluster-issuer: 'letsencrypt'
-        enabled: true
-        hosts:
-        - 'thanos.spence.network'
-        tls:
-        - hosts:
-          - 'thanos.spence.network'
-          secretName: 'thanos-tls'
     alertmanager:
       alertmanagerSpec:
         image:
@@ -60,11 +25,11 @@ spec:
           cert-manager.io/cluster-issuer: 'letsencrypt'
         enabled: true
         hosts:
-        - 'alertmanager.spence.network'
-        tls:
-        - hosts:
           - 'alertmanager.spence.network'
-          secretName: 'alertmanager-tls'
+        tls:
+          - hosts:
+              - 'alertmanager.spence.network'
+            secretName: 'alertmanager-tls'
     grafana:
       image:
         repository: 'grafana/grafana'
@@ -74,16 +39,51 @@ spec:
           cert-manager.io/cluster-issuer: 'letsencrypt'
         enabled: true
         hosts:
-        - 'grafana.spence.network'
-        tls:
-        - hosts:
           - 'grafana.spence.network'
-          secretName: 'grafana-tls'
+        tls:
+          - hosts:
+              - 'grafana.spence.network'
+            secretName: 'grafana-tls'
       sidecar:
         dashboards:
           enabled: true
-          watchMethod: 'WATCH'
           searchNamespace: 'ALL'
+          watchMethod: 'WATCH'
         datasources:
           enabled: true
           searchNamespace: 'ALL'
+    prometheus:
+      ingress:
+        annotations:
+          cert-manager.io/cluster-issuer: 'letsencrypt'
+        enabled: true
+        hosts:
+          - 'prometheus.spence.network'
+        tls:
+          - hosts:
+              - 'prometheus.spence.network'
+            secretName: 'prometheus-tls'
+      prometheusSpec:
+        image:
+          repository: 'quay.io/prometheus/prometheus'
+          tag: 'v2.18.2'
+        podMonitorSelectorNilUsesHelmValues: false
+        ruleSelectorNilUsesHelmValues: false
+        serviceMonitorSelectorNilUsesHelmValues: false
+      thanosIngress:
+        annotations:
+          cert-manager.io/cluster-issuer: 'letsencrypt'
+        enabled: true
+        hosts:
+          - 'thanos.spence.network'
+        tls:
+          - hosts:
+              - 'thanos.spence.network'
+            secretName: 'thanos-tls'
+    prometheusOperator:
+      image:
+        repository: 'quay.io/coreos/prometheus-operator'
+        tag: 'v0.41.1'
+      prometheusConfigReloaderImage:
+        repository: 'quay.io/coreos/prometheus-config-reloader'
+        tag: 'v0.38.1'

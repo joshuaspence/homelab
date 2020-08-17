@@ -2,18 +2,18 @@
 apiVersion: 'helm.fluxcd.io/v1'
 kind: 'HelmRelease'
 metadata:
-  name: 'flux'
-  namespace: 'flux'
   annotations:
     filter.fluxcd.io/chart-image: 'semver:*'
     filter.fluxcd.io/memcached: 'semver:*'
     fluxcd.io/automated: 'true'
     repository.fluxcd.io/memcached: 'memcached.repository'
     tag.fluxcd.io/memcached: 'memcached.tag'
+  name: 'flux'
+  namespace: 'flux'
 spec:
   chart:
-    repository: 'https://charts.fluxcd.io'
     name: 'flux'
+    repository: 'https://charts.fluxcd.io'
     version: '1.4.0'
   releaseName: 'flux'
   values:

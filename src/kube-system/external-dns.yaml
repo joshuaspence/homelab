@@ -6,23 +6,23 @@ metadata:
   namespace: 'kube-system'
 spec:
   chart:
-    repository: 'https://charts.bitnami.com/bitnami'
     name: 'external-dns'
+    repository: 'https://charts.bitnami.com/bitnami'
     version: '3.2.5'
   releaseName: 'external-dns'
   values:
+    crd:
+      create: true
     image:
       repository: 'bitnami/external-dns'
       tag: '0.7.2'
-    provider: 'aws'
-    zoneIdFilters: ['Z8WQJGKO99WMI']
-    crd:
-      create: true
     logLevel: 'debug'
     metrics:
       enabled: true
       serviceMonitor:
         enabled: true
+    provider: 'aws'
+    zoneIdFilters: ['Z8WQJGKO99WMI']
   valuesFrom:
     - secretKeyRef:
         name: 'external-dns-aws'

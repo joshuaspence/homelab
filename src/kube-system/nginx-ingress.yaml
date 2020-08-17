@@ -5,32 +5,32 @@ metadata:
   name: 'nginx-ingress'
   namespace: 'kube-system'
 spec:
-  releaseName: 'nginx-ingress'
   chart:
-    repository: 'https://kubernetes.github.io/ingress-nginx'
     name: 'ingress-nginx'
+    repository: 'https://kubernetes.github.io/ingress-nginx'
     version: '2.11.2'
+  releaseName: 'nginx-ingress'
   values:
     controller:
-      hostNetwork: false
-      dnsPolicy: 'ClusterFirst'
-      reportNodeInternalIp: false
-      healthCheckPath: '/healthz'
       autoscaling:
         enabled: false
+      dnsPolicy: 'ClusterFirst'
+      healthCheckPath: '/healthz'
+      hostNetwork: false
       hostPort:
         enabled: true
         ports:
           http: 80
           https: 443
-      service:
-        internal:
-          enabled: false
       metrics:
         enabled: true
-        serviceMonitor:
-          enabled: true
         prometheusRule:
+          enabled: true
+        serviceMonitor:
+          enabled: false
+      reportNodeInternalIp: false
+      service:
+        internal:
           enabled: false
     defaultBackend:
       enabled: false
