@@ -2,6 +2,8 @@
 apiVersion: 'helm.fluxcd.io/v1'
 kind: 'HelmRelease'
 metadata:
+  annotations:
+    fluxcd.io/automated: 'false'
   name: 'nginx-ingress'
   namespace: 'kube-system'
 spec:
