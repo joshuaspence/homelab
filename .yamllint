@@ -1,9 +1,4 @@
 ---
-yaml-files:
-  - '*.yaml'
-  - '*.yml'
-  - '.yamllint'
-
 ignore: |-
   *.sops.yaml
 
