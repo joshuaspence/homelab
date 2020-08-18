@@ -9,25 +9,25 @@ ignore: |-
 
 rules:
   braces:
-    min-spaces-inside: 1
     max-spaces-inside: 1
-    min-spaces-inside-empty: 0
     max-spaces-inside-empty: 0
+    min-spaces-inside: 1
+    min-spaces-inside-empty: 0
   brackets:
-    min-spaces-inside: 0
     max-spaces-inside: 0
-    min-spaces-inside-empty: 0
     max-spaces-inside-empty: 0
+    min-spaces-inside: 0
+    min-spaces-inside-empty: 0
   colons:
-    max-spaces-before: 0
     max-spaces-after: 1
+    max-spaces-before: 0
   commas:
+    max-spaces-after: 1
     max-spaces-before: 0
     min-spaces-after: 1
-    max-spaces-after: 1
   comments:
-    require-starting-space: true
     min-spaces-from-content: 2
+    require-starting-space: true
   comments-indentation: 'enable'
   document-end:
     present: false
@@ -41,9 +41,9 @@ rules:
   hyphens:
     max-spaces-after: 1
   indentation:
-    spaces: 2
-    indent-sequences: 'consistent'
     check-multi-line-strings: true
+    indent-sequences: 'consistent'
+    spaces: 2
   key-duplicates: 'enable'
   key-ordering: 'disable'
   line-length:
