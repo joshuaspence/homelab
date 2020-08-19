@@ -37,7 +37,8 @@ rules:
     max-spaces-after: 1
   indentation:
     check-multi-line-strings: true
-    indent-sequences: 'consistent'
+    indent-sequences: true
+    level: 'warning'
     spaces: 2
   key-duplicates: 'enable'
   key-ordering:
