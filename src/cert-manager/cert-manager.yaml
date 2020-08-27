@@ -6,7 +6,7 @@ metadata:
     filter.fluxcd.io/cainjector: 'semver:*'
     filter.fluxcd.io/chart-image: 'semver:*'
     filter.fluxcd.io/webhook: 'semver:*'
-    fluxcd.io/automated: 'true'
+    fluxcd.io/automated: 'false'
   name: 'cert-manager'
   namespace: 'cert-manager'
 spec:
@@ -19,15 +19,15 @@ spec:
     cainjector:
       image:
         repository: 'quay.io/jetstack/cert-manager-cainjector'
-        tag: '608111629'
+        tag: 'v0.16.0'
     extraArgs:
-    - '--dns01-recursive-nameservers=1.1.1.1:53'
-    - '--dns01-recursive-nameservers-only'
+      - '--dns01-recursive-nameservers=1.1.1.1:53'
+      - '--dns01-recursive-nameservers-only'
     global:
       logLevel: 2
     image:
       repository: 'quay.io/jetstack/cert-manager-controller'
-      tag: '608111629'
+      tag: 'v0.16.0'
     installCRDs: true
     prometheus:
       enabled: true
@@ -36,4 +36,4 @@ spec:
     webhook:
       image:
         repository: 'quay.io/jetstack/cert-manager-webhook'
-        tag: '608111629'
+        tag: 'v0.16.0'
