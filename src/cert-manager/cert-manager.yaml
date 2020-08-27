@@ -36,4 +36,4 @@ spec:
     webhook:
       image:
         repository: 'quay.io/jetstack/cert-manager-webhook'
-        tag: 'v0.16.0'
+        tag: '608111629'
