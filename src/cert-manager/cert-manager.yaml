@@ -21,13 +21,13 @@ spec:
         repository: 'quay.io/jetstack/cert-manager-cainjector'
         tag: 'v0.16.0'
     extraArgs:
-      - '--dns01-recursive-nameservers=1.1.1.1:53'
-      - '--dns01-recursive-nameservers-only'
+    - '--dns01-recursive-nameservers=1.1.1.1:53'
+    - '--dns01-recursive-nameservers-only'
     global:
       logLevel: 2
     image:
       repository: 'quay.io/jetstack/cert-manager-controller'
-      tag: 'v0.16.0'
+      tag: '608111629'
     installCRDs: true
     prometheus:
       enabled: true
