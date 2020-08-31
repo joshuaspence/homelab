@@ -51,6 +51,7 @@ rules:
       /.github/workflows/*.yaml
       /.markdownlint.yaml
   line-length:
+    allow-non-breakable-inline-mappings: true
     max: 80
   new-line-at-end-of-file: 'enable'
   new-lines:
