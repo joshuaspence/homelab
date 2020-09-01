@@ -7,6 +7,15 @@ jobs:
     steps:
       - uses: 'actions/checkout@v2'
       - uses: 'snow-actions/eclint@v1.0.1'
+  hrval:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v2'
+      - uses: 'stefanprodan/hrval-action@v3.3.1'
+        with:
+          helmRelease: 'src'
+          helmVersion: 'v3'
+          kubernetesVersion: 'master'
   kubeval:
     runs-on: 'ubuntu-latest'
     steps:
@@ -30,11 +39,6 @@ jobs:
           # used above doesn't support it, see
           # https://github.com/ams0/kubernetes-json-schema/issues/3.
           strict: false
-      - uses: 'stefanprodan/hrval-action@v3.3.1'
-        with:
-          helmRelease: 'src'
-          helmVersion: 'v3'
-          kubernetesVersion: 'master'
   markdownlint:
     runs-on: 'ubuntu-latest'
     steps:
