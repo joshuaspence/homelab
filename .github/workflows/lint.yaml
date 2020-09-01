@@ -25,20 +25,10 @@ jobs:
           files: 'src'
           ignored_path_patterns: '\.sops\.yaml$'
           version: 'master'
-      - uses: 'joshuaspence/kubeval-action@38c815e'
-        with:
-          files: 'src'
-          ignored_path_patterns: '\.sops\.yaml$'
-          version: 'master'
 
           # NOTE: `kubeval` cannot currently validate CRDs, see
           # https://github.com/instrumenta/kubeval/issues/47.
-          additional_schema_locations: 'https://raw.githubusercontent.com/ams0/kubernetes-json-schema/master'
-
-          # NOTE: Strict validation is disabled as the additional schema being
-          # used above doesn't support it, see
-          # https://github.com/ams0/kubernetes-json-schema/issues/3.
-          strict: false
+          additional_schema_locations: 'https://raw.githubusercontent.com/joshuaspence/kubernetes-json-schema/master'
   markdownlint:
     runs-on: 'ubuntu-latest'
     steps:
