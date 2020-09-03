@@ -3,8 +3,8 @@ apiVersion: 'helm.fluxcd.io/v1'
 kind: 'HelmRelease'
 metadata:
   annotations:
+    filter.fluxcd.io/chart-image: 'semver:*'
     fluxcd.io/automated: 'true'
-    fluxcd.io/tag.chart-image: 'semver:*'
   name: 'home-assistant'
   namespace: 'default'
 spec:
