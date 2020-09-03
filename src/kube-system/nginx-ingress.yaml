@@ -25,7 +25,7 @@ spec:
       metrics:
         enabled: true
         prometheusRule:
-          enabled: true
+          enabled: false
         serviceMonitor:
           enabled: false
       reportNodeInternalIp: false
