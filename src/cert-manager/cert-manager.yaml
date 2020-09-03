@@ -6,7 +6,7 @@ metadata:
     filter.fluxcd.io/cainjector: 'semver:*'
     filter.fluxcd.io/chart-image: 'semver:*'
     filter.fluxcd.io/webhook: 'semver:*'
-    fluxcd.io/automated: 'true'
+    fluxcd.io/automated: 'false'
   name: 'cert-manager'
   namespace: 'cert-manager'
 spec:
