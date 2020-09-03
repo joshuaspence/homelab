@@ -3,10 +3,10 @@ apiVersion: 'helm.fluxcd.io/v1'
 kind: 'HelmRelease'
 metadata:
   annotations:
-    filter.fluxcd.io/cainjector: 'semver:*'
-    filter.fluxcd.io/chart-image: 'semver:*'
-    filter.fluxcd.io/webhook: 'semver:*'
-    fluxcd.io/automated: 'false'
+    filter.fluxcd.io/cainjector: 'semver:~1'
+    filter.fluxcd.io/chart-image: 'semver:~1'
+    filter.fluxcd.io/webhook: 'semver:~1'
+    fluxcd.io/automated: 'true'
   name: 'cert-manager'
   namespace: 'cert-manager'
 spec:
