@@ -14,7 +14,7 @@ spec:
   releaseName: 'kubernetes-dashboard'
   values:
     extraArgs:
-    - '--enable-skip-login'
+      - '--enable-skip-login'
     image:
       repository: 'kubernetesui/dashboard'
       tag: 'v2.0.4'
@@ -23,11 +23,11 @@ spec:
         cert-manager.io/cluster-issuer: 'letsencrypt'
       enabled: true
       hosts:
-      - 'kubernetes-dashboard.spence.network'
-      tls:
-      - hosts:
         - 'kubernetes-dashboard.spence.network'
-        secretName: 'kubernetes-dashboard-tls'
+      tls:
+        - hosts:
+            - 'kubernetes-dashboard.spence.network'
+          secretName: 'kubernetes-dashboard-tls'
     metrics-server:
       enabled: true
     metricsScraper:

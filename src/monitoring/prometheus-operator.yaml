@@ -25,11 +25,11 @@ spec:
           cert-manager.io/cluster-issuer: 'letsencrypt'
         enabled: true
         hosts:
-        - 'alertmanager.spence.network'
-        tls:
-        - hosts:
           - 'alertmanager.spence.network'
-          secretName: 'alertmanager-tls'
+        tls:
+          - hosts:
+              - 'alertmanager.spence.network'
+            secretName: 'alertmanager-tls'
     grafana:
       image:
         repository: 'grafana/grafana'
@@ -39,11 +39,11 @@ spec:
           cert-manager.io/cluster-issuer: 'letsencrypt'
         enabled: true
         hosts:
-        - 'grafana.spence.network'
-        tls:
-        - hosts:
           - 'grafana.spence.network'
-          secretName: 'grafana-tls'
+        tls:
+          - hosts:
+              - 'grafana.spence.network'
+            secretName: 'grafana-tls'
       sidecar:
         dashboards:
           enabled: true
@@ -58,11 +58,11 @@ spec:
           cert-manager.io/cluster-issuer: 'letsencrypt'
         enabled: true
         hosts:
-        - 'prometheus.spence.network'
-        tls:
-        - hosts:
           - 'prometheus.spence.network'
-          secretName: 'prometheus-tls'
+        tls:
+          - hosts:
+              - 'prometheus.spence.network'
+            secretName: 'prometheus-tls'
       prometheusSpec:
         image:
           repository: 'quay.io/prometheus/prometheus'
@@ -75,11 +75,11 @@ spec:
           cert-manager.io/cluster-issuer: 'letsencrypt'
         enabled: true
         hosts:
-        - 'thanos.spence.network'
-        tls:
-        - hosts:
           - 'thanos.spence.network'
-          secretName: 'thanos-tls'
+        tls:
+          - hosts:
+              - 'thanos.spence.network'
+            secretName: 'thanos-tls'
     prometheusOperator:
       image:
         repository: 'quay.io/coreos/prometheus-operator'

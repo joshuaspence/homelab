@@ -22,11 +22,11 @@ spec:
         cert-manager.io/cluster-issuer: 'letsencrypt'
       enabled: true
       hosts:
-      - 'home-assistant.spence.network'
-      tls:
-      - hosts:
         - 'home-assistant.spence.network'
-        secretName: 'home-assistant-tls'
+      tls:
+        - hosts:
+            - 'home-assistant.spence.network'
+          secretName: 'home-assistant-tls'
     monitoring:
       enabled: true
       serviceMonitor:
