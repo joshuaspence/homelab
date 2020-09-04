@@ -23,6 +23,7 @@ spec:
     image:
       repository: 'quay.io/jetstack/cert-manager-controller'
       tag: 'v1.0.0'
+    installCRDs: true
     prometheus:
       enabled: true
       servicemonitor:
