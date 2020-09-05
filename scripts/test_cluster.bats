@@ -3,12 +3,6 @@
 load "$(npm root --global)/bats-assert/load.bash"
 load "$(npm root --global)/bats-support/load.bash"
 
-function test_certificate() {
-  run kubectl get --namespace "${1}" --output 'jsonpath={.status.revision}' "certificate/${2}"
-  assert_success
-  assert_output
-}
-
 function test_helmrelease() {
   run kubectl get --namespace "${1}" --output 'jsonpath={.status.phase}' "helmrelease/${2}"
   assert_success
@@ -26,6 +20,21 @@ function test_ingress() {
   run kubectl get --namespace "${1}" --output 'jsonpath={.status.loadBalancer.ingress[*].ip}' "ingress/${2}"
   assert_success
   assert_output
+
+  HOST=$(kubectl get --namespace "${1}" --output 'jsonpath={.spec.rules[*].host}' "ingress/${2}")
+  IP=$(kubectl get --namespace "${1}" --output 'jsonpath={.status.loadBalancer.ingress[*].ip}' "ingress/${2}")
+  assert_equal "$(dig +short "${HOST}")" "${IP}"
+
+  run curl \
+    --cacert <(curl --silent https://letsencrypt.org/certs/fakelerootx1.pem) \
+    --head \
+    --header "Host: ${HOST}" \
+    --no-location \
+    --request GET \
+    --show-error \
+    --silent \
+    "https://${HOST}"
+  assert_success
 }
 
 function test_pvc() {
@@ -52,15 +61,13 @@ function test_pvc() {
 
 @test 'home-assistant' {
   test_helmrelease default home-assistant
-  test_ingress default home-assistant
-  test_certificate default home-assistant-tls
   test_pvc default home-assistant
+  test_ingress default home-assistant
 }
 
 @test 'kubernetes-dashboard' {
   test_helmrelease default kubernetes-dashboard
   test_ingress default kubernetes-dashboard
-  test_certificate default kubernetes-dashboard-tls
 }
 
 @test 'metallb' {
@@ -74,11 +81,7 @@ function test_pvc() {
 @test 'prometheus-operator' {
   test_helmrelease monitoring prometheus-operator
   test_ingress monitoring prometheus-operator-alertmanager
-  test_certificate monitoring alertmanager-tls
   test_ingress monitoring prometheus-operator-grafana
-  test_certificate monitoring grafana-tls
   test_ingress monitoring prometheus-operator-prometheus
-  test_certificate monitoring prometheus-tls
   test_ingress monitoring prometheus-operator-thanos-gateway
-  test_certificate monitoring thanos-tls
 }
