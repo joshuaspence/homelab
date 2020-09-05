@@ -48,3 +48,12 @@ function assert_helmrelease() {
 @test 'prometheus-operator' {
   assert_helmrelease monitoring prometheus-operator
 }
+
+@test 'Ingresses have IP addresses' {
+  for RESOURCE in $(kubectl get --all-namespaces --output 'jsonpath={range .items[*]}{.metadata.namespace}/{.metadata.name}{"\n"}{end}' ingress); do
+    IFS=/ read -a RESOURCE -r <<< "${RESOURCE}"
+    run kubectl get --namespace "${RESOURCE[0]}" --output jsonpath={.status.loadBalancer.ingress[*].ip} "ingress/${RESOURCE[1]}"
+    [[ $status -eq  0 ]]
+    [[ $output != '' ]]
+  done
+}
