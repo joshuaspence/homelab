@@ -3,17 +3,35 @@
 load "$(npm root --global)/bats-assert/load.bash"
 load "$(npm root --global)/bats-support/load.bash"
 
-function test_helmrelease() {
-  run kubectl get --namespace "${1}" --output jsonpath={.status.phase} "helmrelease/${2}"
+function test_certificate() {
+  run kubectl get --namespace "${1}" --output 'jsonpath={.status.revision}' "certificate/${2}"
   assert_success
-  assert_output 'Succeeded'
+  assert_output
+}
 
-  run kubectl get --namespace "${1}" --output jsonpath={.status.releaseStatus} "helmrelease/${2}"
+function test_helmrelease() {
+  run kubectl get --namespace "${1}" --output 'jsonpath={.status.phase}' "helmrelease/${2}"
   assert_success
-  assert_output 'deployed'
+  assert_output Succeeded
+
+  run kubectl get --namespace "${1}" --output 'jsonpath={.status.releaseStatus}' "helmrelease/${2}"
+  assert_success
+  assert_output deployed
 
   run helm test --namespace "${1}" "${2}"
   assert_success
+}
+
+function test_ingress() {
+  run kubectl get --namespace "${1}" --output 'jsonpath={.status.loadBalancer.ingress[*].ip}' "ingress/${2}"
+  assert_success
+  assert_output
+}
+
+function test_pvc() {
+  run kubectl get --namespace "${1}" --output 'jsonpath={.status.phase}' "persistentvolumeclaim/${2}"
+  assert_success
+  assert_output Bound
 }
 
 @test 'cert-manager' {
@@ -34,10 +52,15 @@ function test_helmrelease() {
 
 @test 'home-assistant' {
   test_helmrelease default home-assistant
+  test_ingress default home-assistant
+  test_certificate default home-assistant-tls
+  test_pvc default home-assistant
 }
 
 @test 'kubernetes-dashboard' {
   test_helmrelease default kubernetes-dashboard
+  test_ingress default kubernetes-dashboard
+  test_certificate default kubernetes-dashboard-tls
 }
 
 @test 'metallb' {
@@ -50,13 +73,12 @@ function test_helmrelease() {
 
 @test 'prometheus-operator' {
   test_helmrelease monitoring prometheus-operator
-}
-
-@test 'Ingresses have IP addresses' {
-  for RESOURCE in $(kubectl get --all-namespaces --output 'jsonpath={range .items[*]}{.metadata.namespace}/{.metadata.name}{"\n"}{end}' ingress); do
-    IFS=/ read -a RESOURCE -r <<< "${RESOURCE}"
-    run kubectl get --namespace "${RESOURCE[0]}" --output jsonpath={.status.loadBalancer.ingress[*].ip} "ingress/${RESOURCE[1]}"
-    assert_success
-    assert_output
-  done
+  test_ingress monitoring prometheus-operator-alertmanager
+  test_certificate monitoring alertmanager-tls
+  test_ingress monitoring prometheus-operator-grafana
+  test_certificate monitoring grafana-tls
+  test_ingress monitoring prometheus-operator-prometheus
+  test_certificate monitoring prometheus-tls
+  test_ingress monitoring prometheus-operator-thanos-gateway
+  test_certificate monitoring thanos-tls
 }
