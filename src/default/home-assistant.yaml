@@ -14,6 +14,7 @@ spec:
     version: '2.0.0'
   releaseName: 'home-assistant'
   values:
+    hostNetwork: false
     image:
       repository: 'homeassistant/home-assistant'
       tag: '0.114.4'
@@ -21,11 +22,10 @@ spec:
       annotations:
         cert-manager.io/cluster-issuer: 'letsencrypt'
       enabled: true
-      hosts:
+      hosts: &hosts
         - 'home-assistant.spence.network'
       tls:
-        - hosts:
-            - 'home-assistant.spence.network'
+        - hosts: *hosts
           secretName: 'home-assistant-tls'
     monitoring:
       enabled: true
