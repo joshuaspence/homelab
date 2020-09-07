@@ -24,11 +24,10 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: 'letsencrypt'
         enabled: true
-        hosts:
+        hosts: &alertmanager_hosts
           - 'alertmanager.spence.network'
         tls:
-          - hosts:
-              - 'alertmanager.spence.network'
+          - hosts: *alertmanager_hosts
             secretName: 'alertmanager-tls'
     grafana:
       image:
@@ -38,11 +37,10 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: 'letsencrypt'
         enabled: true
-        hosts:
+        hosts: &grafana_hosts
           - 'grafana.spence.network'
         tls:
-          - hosts:
-              - 'grafana.spence.network'
+          - hosts: *grafana_hosts
             secretName: 'grafana-tls'
       sidecar:
         dashboards:
@@ -57,11 +55,10 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: 'letsencrypt'
         enabled: true
-        hosts:
+        hosts: &prometheus_hosts
           - 'prometheus.spence.network'
         tls:
-          - hosts:
-              - 'prometheus.spence.network'
+          - hosts: *prometheus_hosts
             secretName: 'prometheus-tls'
       prometheusSpec:
         image:
@@ -74,11 +71,10 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: 'letsencrypt'
         enabled: true
-        hosts:
+        hosts: &thanos_hosts
           - 'thanos.spence.network'
         tls:
-          - hosts:
-              - 'thanos.spence.network'
+          - hosts: *thanos_hosts
             secretName: 'thanos-tls'
     prometheusOperator:
       image:

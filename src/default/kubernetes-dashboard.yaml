@@ -22,11 +22,10 @@ spec:
       annotations:
         cert-manager.io/cluster-issuer: 'letsencrypt'
       enabled: true
-      hosts:
+      hosts: &hosts
         - 'kubernetes-dashboard.spence.network'
       tls:
-        - hosts:
-            - 'kubernetes-dashboard.spence.network'
+        - hosts: *hosts
           secretName: 'kubernetes-dashboard-tls'
     metrics-server:
       enabled: true
