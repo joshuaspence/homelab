@@ -5,7 +5,7 @@ metadata:
   annotations:
     fluxcd.io/automated: 'true'
   name: 'kubernetes-dashboard'
-  namespace: 'default'
+  namespace: 'kubernetes-dashboard'
 spec:
   chart:
     name: 'kubernetes-dashboard'
