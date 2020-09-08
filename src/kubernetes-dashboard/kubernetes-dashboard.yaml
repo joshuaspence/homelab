@@ -13,8 +13,6 @@ spec:
     version: '2.3.0'
   releaseName: 'kubernetes-dashboard'
   values:
-    extraArgs:
-      - '--enable-skip-login'
     image:
       repository: 'kubernetesui/dashboard'
       tag: 'v2.0.4'
@@ -30,7 +28,9 @@ spec:
     metrics-server:
       enabled: true
     metricsScraper:
-      enabled: false
+      enabled: true
       image:
         repository: 'kubernetesui/metrics-scraper'
         tag: 'v1.0.5'
+    rbac:
+      clusterReadOnlyRole: true
