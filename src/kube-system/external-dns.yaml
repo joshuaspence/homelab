@@ -2,6 +2,8 @@
 apiVersion: 'helm.fluxcd.io/v1'
 kind: 'HelmRelease'
 metadata:
+  annotations:
+    fluxcd.io/automated: 'true'
   name: 'external-dns'
   namespace: 'kube-system'
 spec:
