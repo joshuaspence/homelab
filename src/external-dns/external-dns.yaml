@@ -5,7 +5,7 @@ metadata:
   annotations:
     fluxcd.io/automated: 'true'
   name: 'external-dns'
-  namespace: 'kube-system'
+  namespace: 'external-dns'
 spec:
   chart:
     name: 'external-dns'
@@ -27,4 +27,4 @@ spec:
     zoneIdFilters: ['Z8WQJGKO99WMI']
   valuesFrom:
     - secretKeyRef:
-        name: 'external-dns-aws'
+        name: 'route53-iam'
