@@ -18,7 +18,6 @@ spec:
     image:
       repository: 'bitnami/external-dns'
       tag: '0.7.2'
-    logLevel: 'debug'
     metrics:
       enabled: true
       serviceMonitor:
