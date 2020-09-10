@@ -22,6 +22,7 @@ spec:
       enabled: true
       serviceMonitor:
         enabled: true
+    policy: 'sync'
     provider: 'aws'
     zoneIdFilters: ['Z8WQJGKO99WMI']
   valuesFrom:
