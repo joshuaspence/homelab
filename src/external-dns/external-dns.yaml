@@ -3,6 +3,7 @@ apiVersion: 'helm.fluxcd.io/v1'
 kind: 'HelmRelease'
 metadata:
   annotations:
+    filter.fluxcd.io/chart-image: 'semver:*'
     fluxcd.io/automated: 'true'
   name: 'external-dns'
   namespace: 'external-dns'
