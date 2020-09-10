@@ -13,6 +13,8 @@ spec:
     version: '3.4.0'
   releaseName: 'external-dns'
   values:
+    aws:
+      region: 'ap-southeast-2'
     crd:
       create: true
     image:
