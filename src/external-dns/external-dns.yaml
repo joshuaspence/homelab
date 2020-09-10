@@ -15,8 +15,6 @@ spec:
   values:
     aws:
       region: 'ap-southeast-2'
-    crd:
-      create: true
     image:
       repository: 'bitnami/external-dns'
       tag: '0.7.2'
