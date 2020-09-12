@@ -9,8 +9,8 @@ metadata:
 spec:
   chart:
     name: 'metallb'
-    repository: 'https://kubernetes-charts.storage.googleapis.com'
-    version: '0.12.0'
+    repository: 'https://charts.bitnami.com/bitnami'
+    version: '0.1.23'
   releaseName: 'metallb'
   values:
     configInline:
@@ -21,14 +21,15 @@ spec:
           protocol: 'layer2'
     controller:
       image:
-        repository: 'metallb/controller'
-        tag: 'v0.8.1'
+        repository: 'bitnami/metallb-controller'
+        tag: '0.9.3'
     prometheus:
-      prometheusRule:
-        enabled: true
+      enabled: true
       serviceMonitor:
         enabled: true
+        prometheusRule:
+          enabled: true
     speaker:
       image:
-        repository: 'metallb/speaker'
-        tag: 'v0.8.1'
+        repository: 'bitnami/metallb-speaker'
+        tag: '0.9.3'
