@@ -3,7 +3,7 @@ apiVersion: 'helm.fluxcd.io/v1'
 kind: 'HelmRelease'
 metadata:
   annotations:
-    filter.fluxcd.io/chart-image: 'semver:*'
+    filter.fluxcd.io/chart-image: 'semver:~1'
     fluxcd.io/automated: 'true'
   name: 'helm-operator'
   namespace: 'flux'

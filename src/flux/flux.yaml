@@ -3,8 +3,8 @@ apiVersion: 'helm.fluxcd.io/v1'
 kind: 'HelmRelease'
 metadata:
   annotations:
-    filter.fluxcd.io/chart-image: 'semver:*'
-    filter.fluxcd.io/memcached: 'semver:*'
+    filter.fluxcd.io/chart-image: 'semver:~1'
+    filter.fluxcd.io/memcached: 'semver:~1'
     fluxcd.io/automated: 'true'
     repository.fluxcd.io/memcached: 'memcached.repository'
     tag.fluxcd.io/memcached: 'memcached.tag'
