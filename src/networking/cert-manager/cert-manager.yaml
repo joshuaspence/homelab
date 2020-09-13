@@ -8,7 +8,7 @@ metadata:
     filter.fluxcd.io/webhook: 'semver:~1'
     fluxcd.io/automated: 'true'
   name: 'cert-manager'
-  namespace: 'cert-manager'
+  namespace: 'networking'
 spec:
   chart:
     name: 'cert-manager'

@@ -6,7 +6,7 @@ metadata:
     filter.fluxcd.io/chart-image: 'semver:~0'
     fluxcd.io/automated: 'true'
   name: 'external-dns'
-  namespace: 'external-dns'
+  namespace: 'networking'
 spec:
   chart:
     name: 'external-dns'
@@ -31,4 +31,4 @@ spec:
       - 'Z8WQJGKO99WMI'
   valuesFrom:
     - secretKeyRef:
-        name: 'route53-iam'
+        name: 'external-dns-route53'
