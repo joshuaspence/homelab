@@ -31,4 +31,4 @@ spec:
       - 'Z8WQJGKO99WMI'
   valuesFrom:
     - secretKeyRef:
-        name: 'external-dns-route53'
+        name: 'external-dns-aws'
