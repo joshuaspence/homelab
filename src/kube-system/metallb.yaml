@@ -27,10 +27,10 @@ spec:
         tag: '0.9.3'
     prometheus:
       enabled: true
+      prometheusRule:
+        enabled: true
       serviceMonitor:
         enabled: true
-        prometheusRule:
-          enabled: true
     speaker:
       image:
         repository: 'bitnami/metallb-speaker'
