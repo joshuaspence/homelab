@@ -3,6 +3,8 @@ apiVersion: 'helm.fluxcd.io/v1'
 kind: 'HelmRelease'
 metadata:
   annotations:
+    filter.fluxcd.io/controller: 'semver:~0'
+    filter.fluxcd.io/speaker: 'semver:~0'
     fluxcd.io/automated: 'true'
   name: 'metallb'
   namespace: 'kube-system'
