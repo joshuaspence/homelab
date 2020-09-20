@@ -20,7 +20,7 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - uses: 'actions/checkout@v2'
-      - uses: 'joshuaspence/kubeval-action@38c815e'
+      - uses: 'joshuaspence/kubeval-action@master'
         with:
           files: 'src'
           ignored_path_patterns: '\.sops\.yaml$'
