@@ -22,13 +22,10 @@ jobs:
       - uses: 'actions/checkout@v2'
       - uses: 'joshuaspence/kubeval-action@master'
         with:
+          additional_schema_locations: 'https://raw.githubusercontent.com/joshuaspence/kubernetes-json-schema/master'
           files: 'src'
           ignored_path_patterns: '\.sops\.yaml$'
           version: 'master'
-
-          # NOTE: `kubeval` cannot currently validate CRDs, see
-          # https://github.com/instrumenta/kubeval/issues/47.
-          additional_schema_locations: 'https://raw.githubusercontent.com/joshuaspence/kubernetes-json-schema/master'
   markdownlint:
     runs-on: 'ubuntu-latest'
     steps:
