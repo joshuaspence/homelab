@@ -17,16 +17,16 @@ spec:
     hostNetwork: false
     image:
       repository: 'homeassistant/home-assistant'
-      tag: '0.114.4'
+      tag: '0.115.2'
     ingress:
       annotations:
         cert-manager.io/cluster-issuer: 'letsencrypt'
       enabled: true
       hosts: &hosts
-        - 'hass.spence.network'
+      - 'hass.spence.network'
       tls:
-        - hosts: *hosts
-          secretName: 'home-assistant-tls'
+      - hosts: *hosts
+        secretName: 'home-assistant-tls'
     monitoring:
       enabled: true
       serviceMonitor:
