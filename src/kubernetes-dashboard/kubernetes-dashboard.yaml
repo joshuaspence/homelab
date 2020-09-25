@@ -10,7 +10,7 @@ spec:
   chart:
     name: 'kubernetes-dashboard'
     repository: 'https://kubernetes.github.io/dashboard/'
-    version: '2.3.0'
+    version: '2.7.1'
   releaseName: 'kubernetes-dashboard'
   values:
     image:
@@ -34,3 +34,4 @@ spec:
         tag: 'v1.0.5'
     rbac:
       clusterReadOnlyRole: true
+    settings: {}
