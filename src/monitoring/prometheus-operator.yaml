@@ -79,7 +79,7 @@ spec:
     prometheusOperator:
       image:
         repository: 'quay.io/coreos/prometheus-operator'
-        tag: 'v0.42.0'
+        tag: 'v0.42.1'
       prometheusConfigReloaderImage:
         repository: 'quay.io/coreos/prometheus-config-reloader'
         tag: 'v0.38.1'
