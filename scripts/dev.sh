@@ -16,6 +16,8 @@ fi
 export KIND_EXPERIMENTAL_DOCKER_NETWORK=homelab
 
 # Create Kubernetes cluster.
+#
+# TODO: Load Docker images with `kind load docker-image`.
 kind create cluster
 
 # Bootstrap Flux.
