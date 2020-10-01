@@ -12,7 +12,7 @@ spec:
   chart:
     name: 'prometheus-operator'
     repository: 'https://kubernetes-charts.storage.googleapis.com'
-    version: '9.3.1'
+    version: '9.3.2'
   releaseName: 'prometheus-operator'
   values:
     alertmanager:
