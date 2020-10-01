@@ -6,14 +6,14 @@ metadata:
     fluxcd.io/automated: 'true'
     fluxcd.io/tag.grafana: 'semver:~7'
     fluxcd.io/tag.prometheusOperator: 'semver:~0'
-  name: 'prometheus-operator'
+  name: 'prometheus'
   namespace: 'monitoring'
 spec:
   chart:
-    name: 'prometheus-operator'
-    repository: 'https://kubernetes-charts.storage.googleapis.com'
-    version: '9.3.2'
-  releaseName: 'prometheus-operator'
+    name: 'kube-prometheus-stack'
+    repository: 'https://prometheus-community.github.io/helm-charts'
+    version: '9.4.5'
+  releaseName: 'prometheus'
   values:
     alertmanager:
       alertmanagerSpec:
