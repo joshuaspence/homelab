@@ -9,13 +9,13 @@ required_annotations {
   input.metadata.annotations["fluxcd.io/automated"]
 }
 
-deny[msg] {
+warn[msg] {
   kubernetes.is_helmrelease
   not required_annotations
   msg = sprintf("%s %s is missing required annotations", [kind, name])
 }
 
-deny[msg] {
+warn[msg] {
   kubernetes.is_helmrelease
   not input.metadata.namespace
   msg = sprintf("%s %s is missing namespace", [kind, name])
@@ -34,7 +34,7 @@ deny[msg] {
   msg = sprintf("%s %s is missing chart", [kind, name])
 }
 
-deny[msg] {
+warn[msg] {
   kubernetes.is_helmrelease
   not input.spec.releaseName
   msg = sprintf("%s %s is missing releaseName", [kind, name])
