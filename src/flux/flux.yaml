@@ -28,7 +28,7 @@ spec:
       secretName: 'flux-gpg'
     image:
       repository: 'docker.io/fluxcd/flux'
-      tag: '1.20.2'
+      tag: '1.21.0'
     memcached:
       repository: 'memcached'
       tag: '1.6.7'
