@@ -39,3 +39,28 @@ warn[msg] {
   not input.spec.releaseName
   msg = sprintf("%s %s is missing releaseName", [kind, name])
 }
+
+fluxcdio_automated_valid {
+  some i
+  values := ["true", "false"]
+  input.metadata.annotations["fluxcd.io/automated"] = values[i]
+}
+
+deny[msg] {
+  kubernetes.is_helmrelease
+  not fluxcdio_automated_valid
+  msg = "Invalid value for fluxcd.io/automated annotation"
+}
+
+fluxcdio_locked_valid {
+  some i
+  values := ["true", "false"]
+  input.metadata.annotations["fluxcd.io/locked"] = values[i]
+}
+
+deny[msg] {
+  kubernetes.is_helmrelease
+  input.metadata.annotations["fluxcd.io/locked"]
+  not fluxcdio_locked_valid
+  msg = "Invalid value for fluxcd.io/locked annotation"
+}
