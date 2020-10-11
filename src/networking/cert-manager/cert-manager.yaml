@@ -19,7 +19,7 @@ spec:
     cainjector:
       image:
         repository: 'quay.io/jetstack/cert-manager-cainjector'
-        tag: 'v1.0.2'
+        tag: 'v1.0.3'
     image:
       repository: 'quay.io/jetstack/cert-manager-controller'
       tag: 'v1.0.2'
