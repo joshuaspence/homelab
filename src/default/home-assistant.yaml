@@ -14,6 +14,10 @@ spec:
     version: '2.5.0'
   releaseName: 'home-assistant'
   values:
+    git:
+      enabled: true
+      repo: 'git@github.com:joshuaspence/home-assistant-config.git'
+      secret: 'git-creds'
     hostNetwork: false
     image:
       repository: 'homeassistant/home-assistant'
