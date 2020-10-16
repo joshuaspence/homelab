@@ -65,11 +65,6 @@ function test_pvc() {
   test_ingress default home-assistant
 }
 
-@test 'kubernetes-dashboard' {
-  test_helmrelease default kubernetes-dashboard
-  test_ingress default kubernetes-dashboard
-}
-
 @test 'metallb' {
   test_helmrelease kube-system metallb
 }
