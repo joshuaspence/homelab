@@ -17,14 +17,14 @@ spec:
   values:
     configInline:
       address-pools:
-        - addresses:
-            - '172.100.1.0/24'
-          name: 'default'
-          protocol: 'layer2'
+      - addresses:
+        - '172.100.1.0/24'
+        name: 'default'
+        protocol: 'layer2'
     controller:
       image:
         repository: 'bitnami/metallb-controller'
-        tag: '0.9.3'
+        tag: '0.9.4'
     prometheus:
       enabled: true
       prometheusRule:
