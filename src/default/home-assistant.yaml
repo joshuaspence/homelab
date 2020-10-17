@@ -16,7 +16,7 @@ spec:
   values:
     git:
       enabled: true
-      repo: 'https://github.com/joshuaspence/home-assistant-config.git'
+      repo: 'git@github.com:joshuaspence/home-assistant-config.git'
       secret: 'git-creds'
     hostNetwork: false
     image:
