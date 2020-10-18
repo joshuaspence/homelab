@@ -44,11 +44,11 @@ function test_pvc() {
 }
 
 @test 'cert-manager' {
-  test_helmrelease cert-manager cert-manager
+  test_helmrelease networking cert-manager
 }
 
 @test 'external-dns' {
-  test_helmrelease kube-system external-dns
+  test_helmrelease networking external-dns
 }
 
 @test 'flux' {
@@ -74,7 +74,7 @@ function test_pvc() {
 }
 
 @test 'prometheus-operator' {
-  test_helmrelease monitoring prometheus-operator
+  test_helmrelease monitoring prometheus
   test_ingress monitoring prometheus-operator-alertmanager
   test_ingress monitoring prometheus-operator-grafana
   test_ingress monitoring prometheus-operator-prometheus
