@@ -12,7 +12,7 @@ spec:
   chart:
     name: 'kube-prometheus-stack'
     repository: 'https://prometheus-community.github.io/helm-charts'
-    version: '9.4.5'
+    version: '10.1.0'
   releaseName: 'prometheus'
   values:
     alertmanager:
@@ -78,8 +78,8 @@ spec:
             secretName: 'thanos-tls'
     prometheusOperator:
       image:
-        repository: 'quay.io/coreos/prometheus-operator'
+        repository: 'quay.io/prometheus-operator/prometheus-operator'
         tag: 'v0.42.1'
       prometheusConfigReloaderImage:
-        repository: 'quay.io/coreos/prometheus-config-reloader'
-        tag: 'v0.38.1'
+        repository: 'quay.io/prometheus-operator/prometheus-config-reloader'
+        tag: 'v0.42.1'

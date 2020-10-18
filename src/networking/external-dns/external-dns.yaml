@@ -11,7 +11,7 @@ spec:
   chart:
     name: 'external-dns'
     repository: 'https://charts.bitnami.com/bitnami'
-    version: '3.4.1'
+    version: '3.4.8'
   releaseName: 'external-dns'
   values:
     aws:

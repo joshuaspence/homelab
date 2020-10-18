@@ -10,7 +10,7 @@ spec:
   chart:
     name: 'ingress-nginx'
     repository: 'https://kubernetes.github.io/ingress-nginx'
-    version: '3.3.0'
+    version: '3.7.1'
   releaseName: 'nginx-ingress'
   values:
     controller:
