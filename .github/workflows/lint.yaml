@@ -2,11 +2,6 @@
 name: 'Lint'
 on: 'push'
 jobs:
-  eclint:
-    runs-on: 'ubuntu-latest'
-    steps:
-      - uses: 'actions/checkout@v2'
-      - uses: 'snow-actions/eclint@v1.0.1'
   hrval:
     runs-on: 'ubuntu-latest'
     steps:
