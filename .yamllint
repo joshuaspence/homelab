@@ -1,4 +1,6 @@
 ---
+extends: 'default'
+
 ignore: |-
   *.sops.yaml
 
@@ -7,34 +9,21 @@ rules:
     forbid: true
   brackets:
     forbid: true
-  colons:
-    max-spaces-after: 1
-    max-spaces-before: 0
-  commas:
-    max-spaces-after: 1
-    max-spaces-before: 0
-    min-spaces-after: 1
   comments:
-    min-spaces-from-content: 2
-    require-starting-space: true
-  comments-indentation: 'enable'
+    level: 'error'
+  comments-indentation:
+    level: 'error'
   document-end:
     present: false
   document-start:
-    present: true
+    level: 'error'
   empty-lines:
     max: 1
-  empty-values:
-    forbid-in-block-mappings: true
-    forbid-in-flow-mappings: true
-  hyphens:
-    max-spaces-after: 1
+  empty-values: 'enable'
   indentation:
     check-multi-line-strings: true
-    indent-sequences: true
     level: 'warning'
     spaces: 2
-  key-duplicates: 'enable'
   key-ordering:
     ignore: |-
       # Keys are sorted based on the order they appear in documentation
@@ -46,15 +35,9 @@ rules:
       /.markdownlint.yaml
   line-length:
     allow-non-breakable-inline-mappings: true
-    max: 80
-  new-line-at-end-of-file: 'enable'
-  new-lines:
-    type: 'unix'
-  octal-values:
-    forbid-implicit-octal: true
+  octal-values: 'enable'
   quoted-strings:
     quote-type: 'single'
-    required: true
-  trailing-spaces: 'enable'
   truthy:
     check-keys: false
+    level: 'error'
