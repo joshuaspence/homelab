@@ -4,15 +4,9 @@ ignore: |-
 
 rules:
   braces:
-    max-spaces-inside: 1
-    max-spaces-inside-empty: 0
-    min-spaces-inside: 1
-    min-spaces-inside-empty: 0
+    forbid: true
   brackets:
-    max-spaces-inside: 0
-    max-spaces-inside-empty: 0
-    min-spaces-inside: 0
-    min-spaces-inside-empty: 0
+    forbid: true
   colons:
     max-spaces-after: 1
     max-spaces-before: 0
