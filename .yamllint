@@ -6,9 +6,13 @@ ignore: |-
 
 rules:
   braces:
-    forbid: true
+    max-spaces-inside: 1
+    max-spaces-inside-empty: 0
+    min-spaces-inside: 1
+    min-spaces-inside-empty: 0
   brackets:
-    forbid: true
+    max-spaces-inside-empty: 0
+    min-spaces-inside-empty: 0
   comments:
     level: 'error'
   comments-indentation:
