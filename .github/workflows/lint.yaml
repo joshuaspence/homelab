@@ -6,7 +6,7 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - uses: 'actions/checkout@v2'
-      - uses: 'stefanprodan/hrval-action@v3.5.0'
+      - uses: 'stefanprodan/hrval-action@v4.0.0'
         with:
           helmRelease: 'src'
           helmVersion: 'v3'
