@@ -24,7 +24,7 @@ rules:
   empty-values: 'enable'
   indentation:
     spaces: 2
-  key-ordering: 'enable'
+  line-length: 'disable'
   octal-values: 'enable'
   quoted-strings:
     quote-type: 'single'
