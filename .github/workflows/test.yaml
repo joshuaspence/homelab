@@ -5,7 +5,7 @@ jobs:
   conftest:
     runs-on: 'ubuntu-latest'
     steps:
-      - uses: 'actions/checkout@v2'
+      - uses: 'actions/checkout@v3'
       - uses: 'instrumenta/conftest-action@v0.4.0'
         with:
           files: 'src'

@@ -5,7 +5,7 @@ jobs:
   hrval:
     runs-on: 'ubuntu-latest'
     steps:
-      - uses: 'actions/checkout@v2'
+      - uses: 'actions/checkout@v3'
       - uses: 'stefanprodan/hrval-action@v4.0.0'
         with:
           helmRelease: 'src'
@@ -14,7 +14,7 @@ jobs:
   kubeval:
     runs-on: 'ubuntu-latest'
     steps:
-      - uses: 'actions/checkout@v2'
+      - uses: 'actions/checkout@v3'
       - uses: 'joshuaspence/kubeval-action@master'
         with:
           additional_schema_locations: 'https://raw.githubusercontent.com/joshuaspence/kubernetes-json-schema/master'
@@ -24,17 +24,17 @@ jobs:
   markdownlint:
     runs-on: 'ubuntu-latest'
     steps:
-      - uses: 'actions/checkout@v2'
+      - uses: 'actions/checkout@v3'
       - uses: 'avto-dev/markdown-lint@v1'
         with:
           args: '.'
   shellcheck:
     runs-on: 'ubuntu-latest'
     steps:
-      - uses: 'actions/checkout@v2'
+      - uses: 'actions/checkout@v3'
       - uses: 'ludeeus/action-shellcheck@1.1.0'
   yamllint:
     runs-on: 'ubuntu-latest'
     steps:
-      - uses: 'actions/checkout@v2'
+      - uses: 'actions/checkout@v3'
       - uses: 'ibiqlik/action-yamllint@v3'
